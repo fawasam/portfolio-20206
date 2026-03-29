@@ -155,6 +155,7 @@ const PROJECTS = [
 export default function ProjectsListing() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(false);
+  const [activeFilter, setActiveFilter] = useState("ALL_SYSTEMS");
 
   useEffect(() => {
     setMounted(true);
@@ -174,14 +175,32 @@ export default function ProjectsListing() {
                <span>SYSTEM_ARCHIVE_MANIFEST_v0.1</span>
             </div>
             <h1 className="text-4xl sm:text-7xl md:text-[14vw] font-black tracking-tighter uppercase leading-[0.8] mb-6 md:mb-12">
-               Systems.<br /><span className="text-accent">Archive.</span>
+               Case.<br /><span className="text-accent underline decoration-4 md:decoration-8 underline-offset-8">Studies.</span>
             </h1>
          </div>
       </section>
 
-      {/* Projects Grid/List Layout */}
-      <section className="px-6 md:px-24 pb-24 md:pb-48 grid grid-cols-1 gap-1 border-t border-grid-line mt-6 md:mt-12">
-         {PROJECTS.map((proj) => (
+      {/* Case Studies Grid Layout */}
+      <section className="px-6 md:px-24 pb-6 flex flex-wrap gap-4 mt-6 md:mt-12">
+        {['ALL_SYSTEMS', 'FIN_NODES', 'LOGISTICS', 'EXPERIMENTAL'].map((filter) => (
+          <button
+            key={filter}
+            onClick={() => setActiveFilter(filter)}
+            className={`technical-label px-4 py-2 border transition-all ${activeFilter === filter ? 'border-accent text-accent bg-accent/10' : 'border-grid-line text-foreground/60 hover:border-foreground/50'}`}
+          >
+            [{filter}]
+          </button>
+        ))}
+      </section>
+
+      <section className="px-6 md:px-24 pb-24 md:pb-48 grid grid-cols-1 gap-1 border-t border-grid-line">
+         {PROJECTS.filter(proj => {
+             if (activeFilter === 'ALL_SYSTEMS') return true;
+             if (activeFilter === 'FIN_NODES' && proj.category.includes('FINANCIAL')) return true;
+             if (activeFilter === 'LOGISTICS' && proj.category.includes('LOGISTICS')) return true;
+             if (activeFilter === 'EXPERIMENTAL' && !proj.category.includes('FINANCIAL') && !proj.category.includes('LOGISTICS')) return true;
+             return false;
+         }).map((proj) => (
             <Link key={proj.id} href={`/projects/${proj.id}`} className="group border-b border-grid-line block">
                <motion.div 
                  whileHover={{ x: 20 }}

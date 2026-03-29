@@ -1,3 +1,8 @@
+export interface ProjectDecision {
+  title: string;
+  reasoning: string;
+}
+
 export interface Project {
   id: string;
   title: string;
@@ -10,6 +15,8 @@ export interface Project {
   concepts: { philosophy: string; breakdown: string };
   impact: { label: string; val: string }[];
   images: string[];
+  decisionLog?: ProjectDecision[];
+  architectureDiagram?: string;
 }
 
 export const PROJECTS_DATA: { [key: string]: Project } = {
@@ -35,7 +42,18 @@ export const PROJECTS_DATA: { [key: string]: Project } = {
        { label: "GEOGRAPHIC_EXTENT", val: "DXB / AUH / SHJ" },
        { label: "USER_TELEMETRY", val: "LIVE_DRIVER_NODES" }
     ],
-    images: ["/assets/laundry_hub_hero.jpg", "/assets/hero.png"]
+    images: ["/assets/laundry_hub_hero.jpg", "/assets/hero.png"],
+    decisionLog: [
+      { 
+        title: "Telemetry: MongoDB vs PostgreSQL", 
+        reasoning: "Chose MongoDB due to the highly polymorphic nature of driver telemetry data. Real-time updates required a schema-less approach to accommodate varying device payloads without triggering migrations." 
+      },
+      { 
+        title: "Real-time: Socket.io Integration", 
+        reasoning: "Selected Socket.io over pure WebSockets to ensure bi-directional reliability across intermittent mobile networks in logistics hubs." 
+      }
+    ],
+    architectureDiagram: "/assets/system.png"
   },
   "PRJ_002": {
     id: "PRJ_002",
@@ -59,7 +77,14 @@ export const PROJECTS_DATA: { [key: string]: Project } = {
        { label: "CONTENT_MANAGEMENT", val: "STRAPI_HEADLESS_CMS" },
        { label: "SERVICE_AVAILABILITY", val: "INDUSTRIAL_STABILITY" }
     ],
-    images: ["/assets/muthoot_hero.jpg", "/assets/hero.png"]
+    images: ["/assets/muthoot_hero.jpg", "/assets/hero.png"],
+    decisionLog: [
+      { 
+        title: "Orchestration: Docker vs Native PM2", 
+        reasoning: "Selected Docker Compose for service isolation. This allowed stable versioning of the Strapi/MySQL mesh across testing and production environments." 
+      }
+    ],
+    architectureDiagram: "/assets/wireframe.png"
   },
   "PRJ_003": {
     id: "PRJ_003",

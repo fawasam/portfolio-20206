@@ -37,10 +37,10 @@ export default function ProjectDetail() {
             className="lg:col-span-3 space-y-8 md:space-y-12"
           >
             <div className="flex flex-col gap-6 md:gap-8">
-               <div className="technical-label flex items-center gap-3">
-                  <span className="symbol">✦</span>
-                  <span>PROJECT_METADATA_EXTRACT</span>
-               </div>
+                <div className="technical-label flex items-center gap-3">
+                   <span className="symbol">✦</span>
+                   <span>CASE_STUDY_METADATA_EXTRACT</span>
+                </div>
                <div className="space-y-4 md:space-y-6 border-l border-grid-line pl-6">
                   <div>
                     <span className="technical-label opacity-60 text-[8px] block mb-2">IDENTIFIER</span>
@@ -114,25 +114,63 @@ export default function ProjectDetail() {
              </motion.div>
 
              {/* Large Schematic Visual */}
-             <motion.div 
-                style={{ 
-                   height: "auto",
-                   aspectRatio: "16/9"
-                }}
-                className="relative lg:h-[70vh] w-full border border-grid-line overflow-hidden group"
-             >
-                <Image 
-                  src={project.images[0]} 
-                  alt={project.title} 
-                  fill
-                  sizes="(max-width: 768px) 100vw, 80vw"
-                  className="object-cover grayscale contrast-125 opacity-40 group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
-                />
-                <div className="absolute top-0 right-0 p-4 md:p-8 technical-label mix-blend-difference flex flex-col gap-2 opacity-60">
-                   <span>PRIMARY_INTERFACE_NODES</span>
-                   <span className="handwriting text-accent text-xs md:text-base">{"// Operational Study 01"}</span>
+              <motion.div 
+                 style={{ 
+                    height: "auto",
+                    aspectRatio: "16/9"
+                 }}
+                 className="relative lg:h-[70vh] w-full border border-grid-line overflow-hidden group"
+              >
+                 <Image 
+                   src={project.images[0]} 
+                   alt={project.title} 
+                   fill
+                   sizes="(max-width: 768px) 100vw, 80vw"
+                   className="object-cover grayscale contrast-125 opacity-40 group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
+                 />
+                 <div className="absolute top-0 right-0 p-4 md:p-8 technical-label mix-blend-difference flex flex-col gap-2 opacity-60">
+                    <span>PRIMARY_INTERFACE_NODES</span>
+                    <span className="handwriting text-accent text-xs md:text-base">{"// Operational Study 01"}</span>
+                 </div>
+              </motion.div>
+
+              {/* Architecture Decision Logic (ADR) */}
+              {project.decisionLog && (
+                <div className="space-y-12">
+                   <div className="technical-label">00 // SYSTEM_DECISION_LOG [ADR]</div>
+                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                      {project.decisionLog.map((log, i) => (
+                        <div key={log.title} className="p-6 border border-grid-line bg-foreground/5 dark:bg-white/5 space-y-4 group hover:border-accent transition-all">
+                           <div className="flex justify-between items-start">
+                              <span className="text-[8px] font-mono opacity-40">DECISION_NODE_0{i+1}</span>
+                              <div className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+                           </div>
+                           <h4 className="text-lg font-bold uppercase tracking-tight">{log.title}</h4>
+                           <p className="text-sm opacity-60 leading-relaxed font-light">{log.reasoning}</p>
+                        </div>
+                      ))}
+                   </div>
                 </div>
-             </motion.div>
+              )}
+
+              {/* System Architecture Visualization */}
+              {project.architectureDiagram && (
+                <div className="space-y-8">
+                   <div className="technical-label">00 // CORE_ARCHITECTURE_MESH</div>
+                   <div className="relative w-full aspect-[21/9] border border-grid-line p-4 md:p-8 overflow-hidden group">
+                      <Image 
+                        src={project.architectureDiagram} 
+                        alt="Architecture Diagram" 
+                        fill
+                        className="object-contain opacity-60 group-hover:opacity-100 transition-opacity duration-700"
+                      />
+                      <div className="absolute bottom-4 right-4 text-[8px] font-mono opacity-20 group-hover:opacity-100">
+                        SOURCE: // ARCHITECTURE_V1.0_SCHEMATIC
+                      </div>
+                   </div>
+                </div>
+              )}
+
 
              {/* Technical Node Analysis */}
              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
