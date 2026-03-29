@@ -1,4 +1,18 @@
-export const PROJECTS_DATA: { [key: string]: any } = {
+export interface Project {
+  id: string;
+  title: string;
+  year: string;
+  category: string;
+  status: string;
+  stack: string;
+  url: string;
+  nodes: { name: string; desc: string }[];
+  concepts: { philosophy: string; breakdown: string };
+  impact: { label: string; val: string }[];
+  images: string[];
+}
+
+export const PROJECTS_DATA: { [key: string]: Project } = {
   "PRJ_001": {
     id: "PRJ_001",
     title: "THE_LAUNDRY_HUB",

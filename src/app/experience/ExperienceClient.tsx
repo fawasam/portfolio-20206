@@ -7,24 +7,15 @@ import { Code2, Layers, Database, Binary, Award, Zap } from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
 
 export default function ExperiencePage() {
-  const { theme, toggleTheme } = useTheme();
+  const { theme } = useTheme();
   const isDark = theme === 'dark';
   const containerRef = useRef<HTMLDivElement>(null);
-
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-  }, [isMenuOpen]);
 
   const gridLine = isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.06)";
   const crosshairStroke = isDark ? "rgba(255,255,255,0.3)" : "rgba(0,0,0,0.25)";
@@ -50,135 +41,6 @@ export default function ExperiencePage() {
         </svg>
       </div>
 
-      {/* Header */}
-      <header className="fixed top-0 left-0 w-full p-6 md:p-12 z-[200] flex justify-between items-baseline mix-blend-difference text-white">
-        <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-12">
-          <Link href="/">
-            <span className="font-black tracking-tighter text-3xl md:text-5xl uppercase leading-none block">FAWAS</span>
-          </Link>
-          {!isMenuOpen && (
-            <div className="hidden sm:flex items-center gap-3">
-               <div className="w-1.5 h-1.5 rounded-full bg-[#ff4d00]" />
-               <span className="text-[10px] uppercase tracking-[0.3em] font-bold opacity-70">Systems_Experience</span>
-            </div>
-          )}
-        </div>
-
-        <nav className="flex items-center gap-6 md:gap-10">
-          <ul className="hidden lg:flex items-center gap-16 text-[10px] uppercase tracking-[0.4em] font-medium opacity-60">
-             <li className="hover:opacity-100 cursor-pointer transition-all hover:text-[#ff4d00]">
-               <Link href="/projects">Work</Link>
-             </li>
-             <li className="text-[#ff4d00] opacity-100 cursor-default">Experience</li>
-             <li className="hover:opacity-100 cursor-pointer transition-all hover:text-[#ff4d00]">
-               <Link href="/about">About</Link>
-             </li>
-             <li className="hover:opacity-100 cursor-pointer transition-all hover:text-[#ff4d00]">Archive</li>
-          </ul>
-          
-          <div className="flex items-center gap-6 md:gap-10">
-            <button 
-              onClick={toggleTheme} 
-              className="hidden lg:block text-[10px] uppercase tracking-[0.3em] font-bold border-b-2 border-white pb-1 cursor-pointer hover:text-[#ff4d00] hover:border-[#ff4d00] transition-all"
-            >
-              {isDark ? 'LIGHT' : 'DARK'}
-            </button>
-            <button 
-               onClick={() => setIsMenuOpen(!isMenuOpen)}
-               className="lg:hidden text-[10px] uppercase tracking-[0.4em] font-black flex items-center gap-4 group"
-            >
-               <span className="opacity-60 group-hover:opacity-100 transition-opacity">{isMenuOpen ? 'CLOSE' : 'MENU'}</span>
-               <div className="grid grid-cols-2 gap-1 w-4 h-4 translate-y-[2px]">
-                  {[0,1,2,3].map(i => (
-                    <div key={i} className={`w-full h-full border ${isMenuOpen && i % 2 === 0 ? 'bg-[#ff4d00] border-[#ff4d00]' : 'border-white'} transition-all`} />
-                  ))}
-               </div>
-            </button>
-          </div>
-        </nav>
-      </header>
-
-      {/* Mobile Sidebar Navigation */}
-      <motion.div 
-         initial={false}
-         animate={{ x: isMenuOpen ? 0 : '100%' }}
-         transition={{ type: "spring", damping: 30, stiffness: 200 }}
-         className="fixed top-0 right-0 w-full h-screen bg-background/95 backdrop-blur-2xl z-[150] lg:hidden border-l border-grid-line overflow-hidden flex flex-col"
-      >
-         <div className="absolute inset-0 bg-pattern opacity-10 pointer-events-none">
-            {/* Visual Decorative Grid */}
-            <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-               <line x1="33%" x2="33%" y1="0" y2="100%" stroke={gridLine} />
-               <line x1="66%" x2="66%" y1="0" y2="100%" stroke={gridLine} />
-               <line x1="0" x2="100%" y1="33%" y2="33%" stroke={gridLine} />
-               <line x1="0" x2="100%" y1="66%" y2="66%" stroke={gridLine} />
-            </svg>
-         </div>
-
-         <div className="mt-40 px-8 flex flex-col gap-2 relative text-foreground">
-            <div className="flex flex-col gap-6 pt-12 border-b-2 border-foreground/10 pb-10 relative">
-               <h2 className="text-7xl font-black tracking-tighter uppercase leading-none">FAWAS</h2>
-               <div className="flex justify-between items-center w-full">
-                  <div className="technical-label flex items-center gap-4 text-[#ff4d00] animate-pulse">
-                     <span className="w-2 h-2 rounded-full bg-current" />
-                     <span>SYSTEMS_DESIGNER_ACTIVE</span>
-                  </div>
-                  <button 
-                   onClick={toggleTheme} 
-                   className="text-[10px] tracking-[0.5em] font-black border-b-2 border-[#ff4d00] text-[#ff4d00] pb-1"
-                  >
-                    {isDark ? 'LIGHT' : 'DARK'}
-                  </button>
-               </div>
-            </div>
-
-            <div className="relative py-12 flex flex-col gap-4">
-               {/* Section Line as seen in image */}
-               <div className="absolute top-0 left-[-32px] w-[150%] h-[1px] bg-foreground/10 overflow-visible flex items-center px-8">
-                  <div className="w-3 h-3 rotate-45 bg-[#ff4d00] shadow-[0_0_10px_#ff4d00] mr-6" />
-                  <span className="technical-label !text-[8px] tracking-[0.5em] opacity-40">SYSTEM_INITIALIZED_00.2</span>
-               </div>
-
-               <nav className="flex flex-col gap-6 mt-8">
-                  {[
-                    { label: 'WORK', href: '/projects', id: '01' },
-                    { label: 'EXPERIENCE', href: '/experience', id: '02' },
-                    { label: 'ABOUT', href: '/about', id: '03' },
-                    { label: 'ARCHIVE', href: '#', id: '04' }
-                  ].map((item, i) => (
-                    <Link key={item.label} href={item.href} onClick={() => setIsMenuOpen(false)}>
-                       <motion.div 
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: isMenuOpen ? 1 : 0, x: isMenuOpen ? 0 : 20 }}
-                        transition={{ delay: 0.2 + (i * 0.1) }}
-                        className="flex items-baseline gap-6 group"
-                       >
-                          <span className="font-mono text-xs opacity-20 group-hover:opacity-100 transition-opacity">{item.id}</span>
-                          <span className="text-5xl font-black tracking-tighter uppercase group-hover:text-[#ff4d00] transition-colors">{item.label}</span>
-                       </motion.div>
-                    </Link>
-                  ))}
-               </nav>
-
-               <div className="mt-20 flex flex-col gap-6">
-                  <div className="flex items-center gap-4 opacity-10">
-                     <span className="w-12 h-[1px] bg-foreground" />
-                     <span className="symbol text-2xl">+</span>
-                     <span className="flex-1 h-[1px] bg-foreground" />
-                  </div>
-                  <div className="technical-label !text-[8px] opacity-20 flex justify-between w-full font-mono">
-                     <span>ENCRYPTED_ID: // FW_26_01</span>
-                     <span>VERIFICATION: NOMINAL</span>
-                  </div>
-               </div>
-            </div>
-         </div>
-         
-         <div className="mt-auto p-8 opacity-20 text-[7px] tracking-[0.4em] font-mono leading-relaxed text-foreground">
-            SYSTEMS ARCHITECT CORE // ALL RIGHTS RESERVED. <br />
-            INITIALIZING LOGICAL INTERFACE PORT 8080.
-         </div>
-      </motion.div>
 
       {/* Hero: Experience Manifest */}
       <section className="pt-48 px-6 md:px-24">
@@ -361,87 +223,6 @@ export default function ExperiencePage() {
                  ))}
               </div>
            </motion.div>
-         </section>
-
-         {/* Technology Stack: SYSTEM_CAPABILITIES */}
-         <section className="px-6 md:px-24 py-32 border-t border-grid-line bg-foreground/[0.02] dark:bg-white/[0.02] relative overflow-hidden">
-            <motion.div 
-               initial={{ opacity: 0 }}
-               whileInView={{ opacity: 1 }}
-               viewport={{ once: true }}
-               className="flex flex-col gap-20"
-            >
-               <div className="flex flex-col gap-6">
-                  <div className="technical-label flex items-center gap-4">
-                     <span className="symbol text-accent">✦</span>
-                     <span>LOG_TECH_STACK_v1.0</span>
-                  </div>
-                  <h2 className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tighter uppercase leading-[0.9]">
-                     Tech.<br /><span className="text-accent underline decoration-4 underline-offset-8">Stack.</span>
-                  </h2>
-               </div>
-
-               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-                  {[
-                    {
-                      category: "LANGUAGES",
-                      icon: "Code2",
-                      skills: ["JavaScript", "Python", "PHP", "SQL", "HTML", "CSS"]
-                    },
-                    {
-                      category: "FRAMEWORKS",
-                      icon: "Layers",
-                      skills: ["React", "Node.js", "Langchain"]
-                    },
-                    {
-                      category: "DATABASES",
-                      icon: "Database",
-                      skills: ["MySQL", "Postgres"]
-                    },
-                    {
-                      category: "TOOLS_DEV",
-                      icon: "Binary",
-                      skills: ["Google Colab", "Matlab", "Microsoft Office"]
-                    }
-                  ].map((group, idx) => {
-                    const IconComponent = group.icon === "Code2" ? Code2 : group.icon === "Layers" ? Layers : group.icon === "Database" ? Database : Binary;
-                    return (
-                      <motion.div 
-                        key={idx}
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ delay: idx * 0.1 }}
-                        viewport={{ once: true }}
-                        className="flex flex-col gap-8 group"
-                      >
-                        <div className="flex items-center justify-between border-b border-grid-line pb-4">
-                          <div className="flex items-center gap-4">
-                            <span className="font-mono text-[10px] opacity-20">0{idx + 1}</span>
-                            <h3 className="technical-label !text-[10px] font-black group-hover:text-accent transition-colors">{group.category}</h3>
-                          </div>
-                          <IconComponent className="w-4 h-4 text-accent opacity-20 group-hover:opacity-100 transition-all duration-300 group-hover:rotate-12" />
-                        </div>
-                        <div className="flex flex-wrap gap-2">
-                          {group.skills.map((skill, sidx) => (
-                            <span 
-                              key={sidx} 
-                              className="text-[10px] md:text-xs font-bold uppercase tracking-widest border border-grid-line px-3 py-1.5 hover:bg-accent hover:text-white hover:border-accent transition-all duration-300 cursor-default"
-                            >
-                              {skill}
-                            </span>
-                          ))}
-                        </div>
-                      </motion.div>
-                    );
-                  })}
-               </div>
-
-               <div className="mt-12 flex items-center gap-6 opacity-10">
-                  <div className="h-[1px] flex-1 bg-foreground" />
-                  <div className="technical-label !text-[8px]">END_TRANSMISSION</div>
-                  <div className="h-[1px] w-24 bg-foreground" />
-               </div>
-            </motion.div>
          </section>
 
          {/* Certifications: CREDENTIAL_MATRIX */}

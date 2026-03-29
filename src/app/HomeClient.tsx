@@ -37,28 +37,28 @@ function ContactForm() {
         <div className="flex flex-col gap-3">
           <label className="technical-label !text-[10px] opacity-40">01_USER_NAME</label>
           <div className="flex items-center gap-4 border-b border-grid-line p-4 focus-within:border-accent transition-all group">
-            <span className="technical-label !text-accent font-black opacity-0 group-focus-within:opacity-100 transition-opacity">USER: &gt;</span>
+            <span className="technical-label !text-accent font-black opacity-0 group-focus-within:opacity-100 group-focus-within:animate-pulse transition-opacity">USER: &gt;</span>
             <input 
               type="text" 
               required
               placeholder="INPUT NAME..."
               value={formData.name}
               onChange={(e) => setFormData({...formData, name: e.target.value})}
-              className="w-full bg-transparent outline-none text-xl font-black uppercase tracking-tighter transition-all placeholder:opacity-30"
+              className="w-full bg-transparent outline-none text-xl font-black uppercase tracking-tighter transition-all placeholder:text-foreground/50"
             />
           </div>
         </div>
         <div className="flex flex-col gap-3">
           <label className="technical-label !text-[10px] opacity-40">02_EMAIL_PROTOCOL</label>
           <div className="flex items-center gap-4 border-b border-grid-line p-4 focus-within:border-accent transition-all group">
-            <span className="technical-label !text-accent font-black opacity-0 group-focus-within:opacity-100 transition-opacity">MAIL: &gt;</span>
+            <span className="technical-label !text-accent font-black opacity-0 group-focus-within:opacity-100 group-focus-within:animate-pulse transition-opacity">MAIL: &gt;</span>
             <input 
               type="email" 
               required
               placeholder="INPUT EMAIL..."
               value={formData.email}
               onChange={(e) => setFormData({...formData, email: e.target.value})}
-              className="w-full bg-transparent outline-none text-xl font-black uppercase tracking-tighter transition-all placeholder:opacity-30"
+              className="w-full bg-transparent outline-none text-xl font-black uppercase tracking-tighter transition-all placeholder:text-foreground/50"
             />
           </div>
         </div>
@@ -66,27 +66,27 @@ function ContactForm() {
       <div className="flex flex-col gap-3">
         <label className="technical-label !text-[10px] opacity-40">03_SUBJECT_MANIFEST</label>
         <div className="flex items-center gap-4 border-b border-grid-line p-4 focus-within:border-accent transition-all group">
-          <span className="technical-label !text-accent font-black opacity-0 group-focus-within:opacity-100 transition-opacity">SUBJ: &gt;</span>
+          <span className="technical-label !text-accent font-black opacity-0 group-focus-within:opacity-100 group-focus-within:animate-pulse transition-opacity">SUBJ: &gt;</span>
           <input 
             type="text" 
             placeholder="INPUT SUBJECT..."
             value={formData.subject}
             onChange={(e) => setFormData({...formData, subject: e.target.value})}
-            className="w-full bg-transparent outline-none text-xl font-black uppercase tracking-tighter transition-all placeholder:opacity-30"
+            className="w-full bg-transparent outline-none text-xl font-black uppercase tracking-tighter transition-all placeholder:text-foreground/50"
           />
         </div>
       </div>
       <div className="flex flex-col gap-3">
         <label className="technical-label !text-[10px] opacity-40">04_MESSAGE_DATA_BUFFER</label>
         <div className="flex flex-col gap-3 border border-grid-line p-6 focus-within:border-accent transition-all group">
-          <span className="technical-label !text-accent font-black opacity-40 group-focus-within:opacity-100 transition-opacity">DATA_STREAM: &gt;</span>
+          <span className="technical-label !text-accent font-black opacity-40 group-focus-within:opacity-100 group-focus-within:animate-pulse transition-opacity">DATA_STREAM: &gt;</span>
           <textarea 
             required
             placeholder="TRANSMIT MESSAGE..."
             rows={4}
             value={formData.message}
             onChange={(e) => setFormData({...formData, message: e.target.value})}
-            className="bg-transparent outline-none text-lg font-medium tracking-tight transition-all resize-none placeholder:opacity-30"
+            className="bg-transparent outline-none text-lg font-medium tracking-tight transition-all resize-none placeholder:text-foreground/50"
           />
         </div>
       </div>
@@ -117,9 +117,8 @@ function ContactForm() {
 }
 
 export default function Home() {
-  const { theme, toggleTheme } = useTheme();
+  const { theme } = useTheme();
   const isDark = theme === 'dark';
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(false);
   const [perfMetrics, setPerfMetrics] = useState({ latency: '0', load: '0.00' });
@@ -147,13 +146,6 @@ export default function Home() {
     restDelta: 0.001
   });
 
-  useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-  }, [isMenuOpen]);
 
   const gridLine = isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.06)";
   const crosshairStroke = isDark ? "rgba(255,255,255,0.3)" : "rgba(0,0,0,0.25)";
@@ -214,138 +206,7 @@ export default function Home() {
         </svg>
       </div>
 
-      {/* Header */}
-      <header className="fixed top-0 left-0 w-full p-6 md:p-12 z-[200] flex justify-between items-baseline mix-blend-difference text-white">
-        <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-12">
-          <Link href="/">
-            <span className="font-black tracking-tighter text-3xl md:text-5xl uppercase leading-none block">fawas</span>
-          </Link>
-          {!isMenuOpen && (
-            <div className="hidden sm:flex items-center gap-3">
-               <div className="w-1.5 h-1.5 rounded-full bg-[#ff4d00]" />
-               <span className="text-[10px] uppercase tracking-[0.3em] font-bold opacity-70">Systems_Designer</span>
-            </div>
-          )}
-        </div>
 
-        <nav className="flex items-center gap-6 md:gap-10">
-          <ul className="hidden lg:flex items-center gap-16 text-[10px] uppercase tracking-[0.4em] font-medium opacity-60">
-             <li className="hover:opacity-100 cursor-pointer transition-all hover:text-[#ff4d00]">
-               <Link href="/projects">Work</Link>
-             </li>
-             <li className="hover:opacity-100 cursor-pointer transition-all hover:text-[#ff4d00]">
-                <Link href="/experience">Experience</Link>
-             </li>
-             <li className="hover:opacity-100 cursor-pointer transition-all hover:text-[#ff4d00]">
-               <Link href="/about">About</Link>
-             </li>
-             <li className="hover:opacity-100 cursor-pointer transition-all hover:text-[#ff4d00]">Archive</li>
-          </ul>
-          
-          <div className="flex items-center gap-6 md:gap-10">
-            <button 
-              onClick={toggleTheme} 
-              className="hidden lg:block text-[10px] uppercase tracking-[0.3em] font-bold border-b-2 border-white pb-1 cursor-pointer hover:text-[#ff4d00] hover:border-[#ff4d00] transition-all"
-            >
-              {isDark ? 'LIGHT' : 'DARK'}
-            </button>
-            <button 
-               onClick={() => setIsMenuOpen(!isMenuOpen)}
-               className="lg:hidden text-[10px] uppercase tracking-[0.4em] font-black flex items-center gap-4 group"
-            >
-               <span className="opacity-60 group-hover:opacity-100 transition-opacity">{isMenuOpen ? 'CLOSE' : 'MENU'}</span>
-               <div className="grid grid-cols-2 gap-1 w-4 h-4 translate-y-[2px]">
-                  {[0,1,2,3].map(i => (
-                    <div key={i} className={`w-full h-full border ${isMenuOpen && i % 2 === 0 ? 'bg-[#ff4d00] border-[#ff4d00]' : 'border-white'} transition-all`} />
-                  ))}
-               </div>
-            </button>
-          </div>
-        </nav>
-      </header>
-
-      {/* Mobile Sidebar Navigation */}
-      <motion.div 
-         initial={false}
-         animate={{ x: isMenuOpen ? 0 : '100%' }}
-         transition={{ type: "spring", damping: 30, stiffness: 200 }}
-         className="fixed top-0 right-0 w-full h-screen bg-background/95 backdrop-blur-2xl z-[150] lg:hidden border-l border-grid-line overflow-hidden flex flex-col"
-      >
-         <div className="absolute inset-0 bg-pattern opacity-10 pointer-events-none">
-            {/* Visual Decorative Grid */}
-            <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-               <line x1="33%" x2="33%" y1="0" y2="100%" stroke={gridLine} />
-               <line x1="66%" x2="66%" y1="0" y2="100%" stroke={gridLine} />
-               <line x1="0" x2="100%" y1="33%" y2="33%" stroke={gridLine} />
-               <line x1="0" x2="100%" y1="66%" y2="66%" stroke={gridLine} />
-            </svg>
-         </div>
-
-         <div className="mt-40 px-8 flex flex-col gap-2 relative">
-            <div className="flex flex-col gap-6 pt-12 border-b-2 border-foreground/10 pb-10 relative">
-               <h2 className="text-7xl font-black tracking-tighter uppercase leading-none">FAWAS</h2>
-               <div className="flex justify-between items-center w-full">
-                  <div className="technical-label flex items-center gap-4 text-[#ff4d00] animate-pulse">
-                     <span className="w-2 h-2 rounded-full bg-current" />
-                     <span>SYSTEMS_DESIGNER_ACTIVE</span>
-                  </div>
-                  <button 
-                   onClick={toggleTheme} 
-                   className="text-[10px] tracking-[0.5em] font-black border-b-2 border-[#ff4d00] text-[#ff4d00] pb-1"
-                  >
-                    {isDark ? 'LIGHT' : 'DARK'}
-                  </button>
-               </div>
-            </div>
-
-            <div className="relative py-12 flex flex-col gap-4">
-               {/* Section Line as seen in image */}
-               <div className="absolute top-0 left-[-32px] w-[150%] h-[1px] bg-foreground/10 overflow-visible flex items-center px-8">
-                  <div className="w-3 h-3 rotate-45 bg-[#ff4d00] shadow-[0_0_10px_#ff4d00] mr-6" />
-                  <span className="technical-label !text-[8px] tracking-[0.5em] opacity-40">SYSTEM_INITIALIZED_00.2</span>
-               </div>
-
-               <nav className="flex flex-col gap-6 mt-8">
-                  {[
-                    { label: 'WORK', href: '/projects', id: '01' },
-                    { label: 'EXPERIENCE', href: '/experience', id: '02' },
-                    { label: 'ABOUT', href: '/about', id: '03' },
-                    { label: 'ARCHIVE', href: '#', id: '04' }
-                  ].map((item, i) => (
-                    <Link key={item.label} href={item.href} onClick={() => setIsMenuOpen(false)}>
-                       <motion.div 
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: isMenuOpen ? 1 : 0, x: isMenuOpen ? 0 : 20 }}
-                        transition={{ delay: 0.2 + (i * 0.1) }}
-                        className="flex items-baseline gap-6 group"
-                       >
-                          <span className="font-mono text-xs opacity-20 group-hover:opacity-100 transition-opacity">{item.id}</span>
-                          <span className="text-5xl font-black tracking-tighter uppercase group-hover:text-[#ff4d00] transition-colors">{item.label}</span>
-                       </motion.div>
-                    </Link>
-                  ))}
-               </nav>
-
-               {/* Tactical Crosshair + Decorative Bottom */}
-               <div className="mt-20 flex flex-col gap-6">
-                  <div className="flex items-center gap-4 opacity-10">
-                     <span className="w-12 h-[1px] bg-foreground" />
-                     <span className="symbol text-2xl">+</span>
-                     <span className="flex-1 h-[1px] bg-foreground" />
-                  </div>
-                  <div className="technical-label !text-[8px] opacity-20 flex justify-between w-full font-mono">
-                     <span>ENCRYPTED_ID: // FW_26_01</span>
-                     <span>VERIFICATION: NOMINAL</span>
-                  </div>
-               </div>
-            </div>
-         </div>
-         
-         <div className="mt-auto p-8 opacity-20 text-[7px] tracking-[0.4em] font-mono leading-relaxed">
-            SYSTEMS ARCHITECT CORE // ALL RIGHTS RESERVED. <br />
-            INITIALIZING LOGICAL INTERFACE PORT 8080.
-         </div>
-      </motion.div>
 
       {/* Hero Section */}
       <section className="min-h-screen flex flex-col justify-center px-8 md:px-24 py-32 relative overflow-hidden">
@@ -519,7 +380,7 @@ export default function Home() {
         </section> */}
 
         {/* Realized Systems: SELECTED_OPERATIONS */}
-        <section className="px-6 md:px-24 py-32 border-t border-grid-line">
+        <section id="work" className="px-6 md:px-24 py-32 md:py-48 border-t border-grid-line relative z-10 mt-12 md:mt-0">
           <div className="flex flex-col gap-20 md:gap-32">
             
             <motion.div 
@@ -550,7 +411,7 @@ export default function Home() {
                    alt="The Laundry Hub - Logistics Platform" 
                    fill
                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 60vw"
-                   className="object-cover grayscale contrast-125 opacity-40 group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
+                   className="object-cover grayscale group-hover:grayscale-0 contrast-125 opacity-40 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000"
                    onError={(e) => { e.currentTarget.style.display = 'none'; }}
                  />
                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80" />
@@ -565,22 +426,19 @@ export default function Home() {
 
               <div className="lg:col-span-5 flex flex-col gap-8 md:gap-10">
                  <div className="space-y-4 md:space-y-6">
-                   <div className="flex items-center gap-4 technical-label opacity-40 line-grid-mobile-fix">
+                   <div className="flex items-center gap-4 technical-label opacity-50 line-grid-mobile-fix">
                       <span>ID: PRJ_001</span>
                       <div className="w-1 h-1 rounded-full bg-accent" />
                       <span>2024</span>
                    </div>
-                   <p className="text-xl md:text-2xl leading-tight font-medium tracking-tight">
-                      Architecting a synchronous logistical mesh for premium service distribution across the UAE.
-                   </p>
-                   <p className="opacity-40 text-sm leading-relaxed max-w-lg">
-                      Transforming traditional physical logistics into synchronous digital logic. Engineered a complete MERN infrastructure with real-time driver telemetry and automated booking nodes.
+                   <p className="opacity-90 text-sm leading-relaxed max-w-lg font-mono">
+                      Architecting a synchronous logistical mesh for premium service distribution across the UAE. Engineered a complete MERN infrastructure with real-time driver telemetry and automated booking nodes.
                    </p>
                  </div>
 
                  <div className="grid grid-cols-2 gap-8 py-8 border-y border-grid-line">
                     <div>
-                      <span className="technical-label text-[9px] opacity-40 block mb-3">SYSTEM_CORE</span>
+                      <span className="technical-label text-[9px] opacity-50 block mb-3">System core</span>
                       <span className="font-mono text-[10px] font-bold uppercase tracking-widest leading-relaxed">Next.js / Express / Mongo</span>
                     </div>
                     <div>
@@ -623,7 +481,7 @@ export default function Home() {
                    alt="Muthoot Capital - Financial Platform" 
                    fill
                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 60vw"
-                   className="object-cover grayscale contrast-125 opacity-40 group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
+                   className="object-cover grayscale group-hover:grayscale-0 contrast-125 opacity-40 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000"
                    onError={(e) => { e.currentTarget.style.display = 'none'; }}
                  />
                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80" />
@@ -643,11 +501,8 @@ export default function Home() {
                       <div className="w-1 h-1 rounded-full bg-accent" />
                       <span>2024</span>
                    </div>
-                   <p className="text-xl md:text-2xl leading-tight font-medium tracking-tight">
-                      Deploying robust enterprise financial nodes for secure loan payments and fixed deposit instruments.
-                   </p>
-                   <p className="opacity-40 text-sm leading-relaxed max-w-lg">
-                      Engineered a fully featured financial ecosystem using a Headless Strapi CMS. Orchestrated complex transaction logic and EMI calculations within a containerized Docker grid.
+                   <p className="opacity-90 text-sm leading-relaxed max-w-lg font-mono">
+                      Deploying robust enterprise financial nodes for secure loan payments and fixed deposit instruments. Engineered a fully featured financial ecosystem using a Headless Strapi CMS. Orchestrated complex transaction logic and EMI calculations within a containerized Docker grid.
                    </p>
                  </div>
 
@@ -776,7 +631,7 @@ export default function Home() {
         </section>
 
         {/* Contact Section: PROTOCOL_HANDSHAKE */}
-        <section id="contact" className="px-6 md:px-24 py-48 border-t border-grid-line bg-background relative overflow-hidden">
+        <section id="contact" className="px-6 md:px-24 py-32 md:py-48 border-t border-grid-line bg-background relative z-10 mt-12 md:mt-0">
            {/* Visual background details */}
            <div className="absolute top-0 right-0 p-12 opacity-5 pointer-events-none">
               <span className="font-mono text-[20vw] font-black leading-none">@</span>

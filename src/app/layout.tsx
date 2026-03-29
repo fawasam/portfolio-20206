@@ -31,6 +31,7 @@ import { ThemeProvider } from "@/context/ThemeContext";
 
 import CommandPalette from "@/components/CommandPalette";
 import Preloader from "@/components/Preloader";
+import Header from "@/components/Header";
 
 export default function RootLayout({
   children,
@@ -42,8 +43,9 @@ export default function RootLayout({
       <body className="antialiased selection:bg-[#ff4d00] selection:text-white">
         <Preloader />
         <div className="crt-overlay" />
-        <CommandPalette />
         <ThemeProvider>
+          <Header />
+          <CommandPalette />
           {children}
         </ThemeProvider>
       </body>

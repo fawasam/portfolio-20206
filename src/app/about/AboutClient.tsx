@@ -9,18 +9,10 @@ import { Mail, Phone, MapPin, Award, User, Zap } from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
 
 export default function AboutPage() {
-  const { theme, toggleTheme } = useTheme();
+  const { theme } = useTheme();
   const isDark = theme === 'dark';
   const containerRef = useRef<HTMLDivElement>(null);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-  }, [isMenuOpen]);
 
   const gridLine = isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.06)";
   const crosshairStroke = isDark ? "rgba(255,255,255,0.3)" : "rgba(0,0,0,0.25)";
@@ -64,110 +56,6 @@ export default function AboutPage() {
         </svg>
       </div>
 
-      {/* Header */}
-      <header className="fixed top-0 left-0 w-full p-6 md:p-12 z-[200] flex justify-between items-baseline mix-blend-difference text-white">
-        <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-12">
-          <Link href="/">
-            <span className="font-black tracking-tighter text-3xl md:text-5xl uppercase leading-none block">FAWAS</span>
-          </Link>
-          {!isMenuOpen && (
-            <div className="hidden sm:flex items-center gap-3">
-               <div className="w-1.5 h-1.5 rounded-full bg-[#ff4d00]" />
-               <span className="text-[10px] uppercase tracking-[0.3em] font-bold opacity-70">About_Identity</span>
-            </div>
-          )}
-        </div>
-
-        <nav className="flex items-center gap-6 md:gap-10">
-          <ul className="hidden lg:flex items-center gap-16 text-[10px] uppercase tracking-[0.4em] font-medium opacity-60">
-             <li className="hover:opacity-100 cursor-pointer transition-all hover:text-[#ff4d00]">
-               <Link href="/projects">Work</Link>
-             </li>
-             <li className="hover:opacity-100 cursor-pointer transition-all hover:text-[#ff4d00]">
-                <Link href="/experience">Experience</Link>
-             </li>
-             <li className="text-[#ff4d00] opacity-100 cursor-default">About</li>
-          </ul>
-          
-          <div className="flex items-center gap-6 md:gap-10">
-            <button 
-              onClick={toggleTheme} 
-              className="hidden lg:block text-[10px] uppercase tracking-[0.3em] font-bold border-b-2 border-white pb-1 cursor-pointer hover:text-[#ff4d00] hover:border-[#ff4d00] transition-all"
-            >
-              {isDark ? 'LIGHT' : 'DARK'}
-            </button>
-            <button 
-               onClick={() => setIsMenuOpen(!isMenuOpen)}
-               className="lg:hidden text-[10px] uppercase tracking-[0.4em] font-black flex items-center gap-4 group"
-            >
-               <span className="opacity-60 group-hover:opacity-100 transition-opacity">{isMenuOpen ? 'CLOSE' : 'MENU'}</span>
-               <div className="grid grid-cols-2 gap-1 w-4 h-4 translate-y-[2px]">
-                  {[0,1,2,3].map(i => (
-                    <div key={i} className={`w-full h-full border ${isMenuOpen && i % 2 === 0 ? 'bg-[#ff4d00] border-[#ff4d00]' : 'border-white'} transition-all`} />
-                  ))}
-               </div>
-            </button>
-          </div>
-        </nav>
-      </header>
-
-      {/* Mobile Sidebar Navigation */}
-      <motion.div 
-         initial={false}
-         animate={{ x: isMenuOpen ? 0 : '100%' }}
-         transition={{ type: "spring", damping: 30, stiffness: 200 }}
-         className="fixed top-0 right-0 w-full h-screen bg-background/95 backdrop-blur-2xl z-[150] lg:hidden border-l border-grid-line overflow-hidden flex flex-col"
-      >
-         {/* ... (sidebar content same as other pages) */}
-         <div className="absolute inset-0 bg-pattern opacity-10 pointer-events-none">
-            <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-               <line x1="33%" x2="33%" y1="0" y2="100%" stroke={gridLine} />
-               <line x1="66%" x2="66%" y1="0" y2="100%" stroke={gridLine} />
-               <line x1="0" x2="100%" y1="33%" y2="33%" stroke={gridLine} />
-               <line x1="0" x2="100%" y1="66%" y2="66%" stroke={gridLine} />
-            </svg>
-         </div>
-
-         <div className="mt-40 px-8 flex flex-col gap-2 relative text-foreground">
-            <div className="flex flex-col gap-6 pt-12 border-b-2 border-foreground/10 pb-10 relative">
-               <h2 className="text-7xl font-black tracking-tighter uppercase leading-none">FAWAS</h2>
-               <div className="flex justify-between items-center w-full">
-                  <div className="technical-label flex items-center gap-4 text-[#ff4d00] animate-pulse">
-                     <span className="w-2 h-2 rounded-full bg-current" />
-                     <span>SYSTEMS_DESIGNER_ACTIVE</span>
-                  </div>
-                  <button 
-                   onClick={toggleTheme} 
-                   className="text-[10px] tracking-[0.5em] font-black border-b-2 border-[#ff4d00] text-[#ff4d00] pb-1"
-                  >
-                    {isDark ? 'LIGHT' : 'DARK'}
-                  </button>
-               </div>
-            </div>
-
-            <div className="relative py-12 flex flex-col gap-4">
-               <nav className="flex flex-col gap-6 mt-8">
-                  {[
-                    { label: 'WORK', href: '/projects', id: '01' },
-                    { label: 'EXPERIENCE', href: '/experience', id: '02' },
-                    { label: 'ABOUT', href: '/about', id: '03' }
-                  ].map((item, i) => (
-                    <Link key={item.label} href={item.href} onClick={() => setIsMenuOpen(false)}>
-                       <motion.div 
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: isMenuOpen ? 1 : 0, x: isMenuOpen ? 0 : 20 }}
-                        transition={{ delay: 0.2 + (i * 0.1) }}
-                        className="flex items-baseline gap-6 group"
-                       >
-                          <span className="font-mono text-xs opacity-20 group-hover:opacity-100 transition-opacity">{item.id}</span>
-                          <span className={`text-5xl font-black tracking-tighter uppercase group-hover:text-[#ff4d00] transition-colors ${item.href === '/about' ? 'text-[#ff4d00]' : ''}`}>{item.label}</span>
-                       </motion.div>
-                    </Link>
-                  ))}
-               </nav>
-            </div>
-         </div>
-      </motion.div>
 
       {/* About Content */}
       <section className="pt-48 px-6 md:px-24 pb-32">

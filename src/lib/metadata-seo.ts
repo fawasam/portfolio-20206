@@ -42,7 +42,7 @@ interface SEOConfig {
     description?: string;
     images?: string[];
   };
-  structuredData?: Record<string, any>;
+  structuredData?: Record<string, unknown>;
   alternates?: {
     canonical?: string;
     languages?: Record<string, string>;
@@ -90,7 +90,7 @@ const isValidUrl = (urlString: string): boolean => {
   try {
     new URL(urlString);
     return true;
-  } catch (error) {
+  } catch {
     return false;
   }
 };
@@ -123,7 +123,7 @@ const constructImageUrl = (image: string, baseUrl: string): string | null => {
 // Utility function to generate structured data
 const generateStructuredData = (
   type: string,
-  data: Record<string, any>
+  data: Record<string, unknown>
 ): string => {
   const baseSchema = {
     "@context": "https://schema.org",
@@ -235,7 +235,6 @@ export const generateMetadata = async (
     path,
     noindex = false,
     nofollow = false,
-    viewport,
     robots,
     searchKeywords,
     openGraph,
@@ -342,7 +341,6 @@ export const generateMetadata = async (
       : [];
 
   // Process viewport
-  const finalViewport = viewport || defaultConfig.viewport;
 
   // Process robots directives
   const finalRobots: Metadata["robots"] = {
@@ -367,7 +365,7 @@ export const generateMetadata = async (
   let metadataBase;
   try {
     metadataBase = new URL(defaultConfig.siteUrl);
-  } catch (error) {
+  } catch {
     console.error("Invalid siteUrl in defaultConfig:", defaultConfig.siteUrl);
     metadataBase = undefined;
   }
