@@ -32,67 +32,78 @@ function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-8 w-full">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-10 w-full">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         <div className="flex flex-col gap-3">
           <label className="technical-label !text-[10px] opacity-40">01_USER_NAME</label>
-          <input 
-            type="text" 
-            required
-            placeholder="INPUT NAME..."
-            value={formData.name}
-            onChange={(e) => setFormData({...formData, name: e.target.value})}
-            className="bg-transparent border-b border-grid-line p-4 focus:border-accent outline-none text-xl font-black uppercase tracking-tighter transition-all placeholder:opacity-30"
-          />
+          <div className="flex items-center gap-4 border-b border-grid-line p-4 focus-within:border-accent transition-all group">
+            <span className="technical-label !text-accent font-black opacity-0 group-focus-within:opacity-100 transition-opacity">USER: &gt;</span>
+            <input 
+              type="text" 
+              required
+              placeholder="INPUT NAME..."
+              value={formData.name}
+              onChange={(e) => setFormData({...formData, name: e.target.value})}
+              className="w-full bg-transparent outline-none text-xl font-black uppercase tracking-tighter transition-all placeholder:opacity-30"
+            />
+          </div>
         </div>
         <div className="flex flex-col gap-3">
           <label className="technical-label !text-[10px] opacity-40">02_EMAIL_PROTOCOL</label>
-          <input 
-            type="email" 
-            required
-            placeholder="INPUT EMAIL..."
-            value={formData.email}
-            onChange={(e) => setFormData({...formData, email: e.target.value})}
-            className="bg-transparent border-b border-grid-line p-4 focus:border-accent outline-none text-xl font-black uppercase tracking-tighter transition-all placeholder:opacity-30"
-          />
+          <div className="flex items-center gap-4 border-b border-grid-line p-4 focus-within:border-accent transition-all group">
+            <span className="technical-label !text-accent font-black opacity-0 group-focus-within:opacity-100 transition-opacity">MAIL: &gt;</span>
+            <input 
+              type="email" 
+              required
+              placeholder="INPUT EMAIL..."
+              value={formData.email}
+              onChange={(e) => setFormData({...formData, email: e.target.value})}
+              className="w-full bg-transparent outline-none text-xl font-black uppercase tracking-tighter transition-all placeholder:opacity-30"
+            />
+          </div>
         </div>
       </div>
       <div className="flex flex-col gap-3">
         <label className="technical-label !text-[10px] opacity-40">03_SUBJECT_MANIFEST</label>
-        <input 
-          type="text" 
-          placeholder="INPUT SUBJECT..."
-          value={formData.subject}
-          onChange={(e) => setFormData({...formData, subject: e.target.value})}
-          className="bg-transparent border-b border-grid-line p-4 focus:border-accent outline-none text-xl font-black uppercase tracking-tighter transition-all placeholder:opacity-30"
-        />
+        <div className="flex items-center gap-4 border-b border-grid-line p-4 focus-within:border-accent transition-all group">
+          <span className="technical-label !text-accent font-black opacity-0 group-focus-within:opacity-100 transition-opacity">SUBJ: &gt;</span>
+          <input 
+            type="text" 
+            placeholder="INPUT SUBJECT..."
+            value={formData.subject}
+            onChange={(e) => setFormData({...formData, subject: e.target.value})}
+            className="w-full bg-transparent outline-none text-xl font-black uppercase tracking-tighter transition-all placeholder:opacity-30"
+          />
+        </div>
       </div>
       <div className="flex flex-col gap-3">
         <label className="technical-label !text-[10px] opacity-40">04_MESSAGE_DATA_BUFFER</label>
-        <textarea 
-          required
-          placeholder="TRANSMIT MESSAGE..."
-          rows={4}
-          value={formData.message}
-          onChange={(e) => setFormData({...formData, message: e.target.value})}
-          className="bg-transparent border border-grid-line p-6 focus:border-accent outline-none text-lg font-medium tracking-tight transition-all resize-none placeholder:opacity-30"
-        />
+        <div className="flex flex-col gap-3 border border-grid-line p-6 focus-within:border-accent transition-all group">
+          <span className="technical-label !text-accent font-black opacity-40 group-focus-within:opacity-100 transition-opacity">DATA_STREAM: &gt;</span>
+          <textarea 
+            required
+            placeholder="TRANSMIT MESSAGE..."
+            rows={4}
+            value={formData.message}
+            onChange={(e) => setFormData({...formData, message: e.target.value})}
+            className="bg-transparent outline-none text-lg font-medium tracking-tight transition-all resize-none placeholder:opacity-30"
+          />
+        </div>
       </div>
       
       <motion.button 
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
+        whileHover={{ scale: 1.01 }}
+        whileTap={{ scale: 0.99 }}
         disabled={status === "loading"}
-        className={`w-full py-6 md:py-8 border-2 border-accent text-accent font-black text-xs md:text-2xl uppercase tracking-[0.2em] md:tracking-[0.5em] transition-all flex items-center justify-center gap-6 group overflow-hidden relative ${status === 'success' ? 'bg-accent/10' : ''}`}
+        className={`w-full py-8 border-2 border-accent text-accent font-black text-xs md:text-2xl uppercase tracking-[0.2em] md:tracking-[0.5em] transition-all flex items-center justify-center gap-6 group overflow-hidden relative shadow-[8px_8px_0px_0px_rgba(255,77,0,0.1)] hover:shadow-none hover:bg-accent hover:text-white ${status === 'success' ? 'bg-accent/10 border-[#22c55e] text-[#22c55e]' : ''}`}
       >
-        <div className="absolute inset-x-0 h-full bg-accent translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
-        <span className="relative z-10 group-hover:text-white transition-colors">
+        <span className="relative z-10">
           {status === "idle" && "INITIATE_TRANSMISSION"}
           {status === "loading" && "TRANSMITTING..."}
           {status === "success" && "TRANSMISSION_COMPLETE"}
-          {status === "error" && "RETRY_TRANSMISSION"}
+          {status === "error" && "RETRY_HANDSHAKE"}
         </span>
-        <Send className="w-5 h-5 relative z-10 group-hover:text-white transition-colors group-hover:translate-x-4 group-hover:-translate-y-4 duration-500" />
+        <Send className={`w-6 h-6 relative z-10 transition-transform duration-500 ${status === 'loading' ? 'animate-bounce' : 'group-hover:translate-x-4 group-hover:-translate-y-4'}`} />
       </motion.button>
       
       {status === 'success' && (
@@ -111,9 +122,18 @@ export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(false);
+  const [perfMetrics, setPerfMetrics] = useState({ latency: '0', load: '0.00' });
 
   useEffect(() => {
     setMounted(true);
+    // Performance Easter Egg
+    const nav = window.performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
+    if (nav) {
+      setPerfMetrics({
+        latency: Math.round(nav.responseStart - nav.requestStart).toString(),
+        load: (nav.loadEventEnd / 1000).toFixed(2)
+      });
+    }
   }, []);
 
   const { scrollYProgress } = useScroll({
@@ -389,6 +409,11 @@ export default function Home() {
             CODE,<br />
             BY <span className="text-accent relative">
               DESIGN.
+              <motion.span 
+                animate={{ opacity: [1, 0, 1] }}
+                transition={{ duration: 0.8, repeat: Infinity }}
+                className="inline-block w-4 md:w-8 h-2 md:h-4 bg-accent ml-2 translate-y-[-20%]"
+              />
               <motion.div 
                 initial={{ width: 0 }}
                 animate={{ width: '100%' }}
@@ -826,13 +851,13 @@ export default function Home() {
              <span className="technical-label !text-[10px] opacity-20">Terms_01</span>
            </div>
 
-           <div className="flex flex-col gap-1 items-center md:items-end technical-label !text-[8px] opacity-40 font-mono text-center md:text-right">
+           <div className="flex flex-col gap-1 items-center md:items-end technical-label !text-[8px] opacity-60 font-mono text-center md:text-right">
               <div className="flex gap-4 items-center">
-                 <span>SYSTEM_LATENCY: 42MS</span>
+                 <span>SYSTEM_LATENCY: {perfMetrics.latency}MS</span>
                  <div className="w-1 h-1 rounded-full bg-[#22c55e] animate-pulse" />
-                 <span>PAGE_LOAD: 0.04S</span>
+                 <span>PAGE_LOAD: {perfMetrics.load}S</span>
               </div>
-              <div className="mt-1">
+              <div className="mt-1 opacity-40">
                  TIMESTAMP: {mounted ? new Date().toISOString() : "0000-00-00T00:00:00Z"}<br />
                  COORD: 12.9716° N, 77.5946° E
               </div>

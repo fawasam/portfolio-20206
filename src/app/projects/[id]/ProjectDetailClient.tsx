@@ -176,15 +176,15 @@ export default function ProjectDetail() {
                </div>
                <div className="space-y-4 md:space-y-6 border-l border-grid-line pl-6">
                   <div>
-                    <span className="technical-label opacity-40 text-[8px] block mb-2">IDENTIFIER</span>
+                    <span className="technical-label opacity-60 text-[8px] block mb-2">IDENTIFIER</span>
                     <span className="font-mono text-sm font-black">{project.id}</span>
                   </div>
                   <div>
-                    <span className="technical-label opacity-40 text-[8px] block mb-2">OPERATIONAL_YEAR</span>
+                    <span className="technical-label opacity-60 text-[8px] block mb-2">OPERATIONAL_YEAR</span>
                     <span className="font-mono text-sm font-black">{project.year}</span>
                   </div>
                   <div>
-                    <span className="technical-label opacity-40 text-[8px] block mb-2">STATUS</span>
+                    <span className="technical-label opacity-60 text-[8px] block mb-2">STATUS</span>
                     <span className="text-accent text-[9px] font-bold bg-accent/10 px-2 py-0.5">{project.status}</span>
                   </div>
                </div>
@@ -203,15 +203,16 @@ export default function ProjectDetail() {
                     <div className="w-1.5 h-1.5 rounded-full bg-[#22c55e] animate-pulse shadow-[0_0_8px_#22c55e]" />
                     <span className="technical-label !text-[9px] font-black text-[#22c55e]">STATUS: OPERATIONAL_ONLINE</span>
                   </div>
-                  <a 
+                  <motion.a 
                     href={project.url} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center justify-between w-full px-6 py-4 border-2 border-accent text-accent font-black text-[10px] uppercase tracking-widest hover:bg-accent hover:text-white transition-all duration-300 group shadow-[4px_4px_0px_0px_rgba(255,77,0,0.1)] hover:shadow-none"
+                    whileHover={{ scale: 1.01 }}
+                    className="flex items-center justify-between w-full px-6 py-4 border-2 border-accent text-accent font-black text-[10px] uppercase tracking-widest hover:bg-accent hover:text-white transition-all duration-300 group shadow-[8px_8px_0px_0px_rgba(255,77,0,0.1)] hover:shadow-none"
                   >
-                    <span>INVESTIGATE_OPERATION</span>
+                    <span className="glitch-text">INVESTIGATE_OPERATION</span>
                     <ExternalLink className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                  </a>
+                  </motion.a>
                </div>
              )}
 
