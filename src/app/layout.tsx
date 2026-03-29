@@ -30,6 +30,7 @@ export async function generateViewport(): Promise<Viewport> {
 import { ThemeProvider } from "@/context/ThemeContext";
 
 import CommandPalette from "@/components/CommandPalette";
+import Preloader from "@/components/Preloader";
 
 export default function RootLayout({
   children,
@@ -39,6 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${handwriting.variable}`}>
       <body className="antialiased selection:bg-[#ff4d00] selection:text-white">
+        <Preloader />
         <div className="crt-overlay" />
         <CommandPalette />
         <ThemeProvider>
