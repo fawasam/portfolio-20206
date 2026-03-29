@@ -5,9 +5,11 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Code2, Layers, Database, Binary } from "lucide-react";
+import { useTheme } from "@/context/ThemeContext";
 
 export default function Home() {
-  const [isDark, setIsDark] = useState(false);
+  const { theme, toggleTheme } = useTheme();
+  const isDark = theme === 'dark';
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -23,21 +25,14 @@ export default function Home() {
   });
 
   useEffect(() => {
-    const root = globalThis.document?.documentElement;
-    if (root) {
-      root.dataset.theme = isDark ? 'dark' : 'light';
-    }
-
     if (isMenuOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
     }
-  }, [isDark, isMenuOpen]);
+  }, [isMenuOpen]);
 
   const gridLine = isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.06)";
-  const markerBg = isDark ? "#111" : "#fff";
-  const markerStroke = isDark ? "rgba(255,255,255,0.15)" : "rgba(0,0,0,0.1)";
   const crosshairStroke = isDark ? "rgba(255,255,255,0.3)" : "rgba(0,0,0,0.25)";
 
   return (
@@ -57,7 +52,6 @@ export default function Home() {
           {/* Desktop Markers */}
           {[437.5, 864.5, 1290.5].flatMap(x => [318.5, 637.5].map(y => (
             <g key={`d-${x}-${y}`}>
-              <rect x={x - 10} y={y - 10} width="20" height="20" fill={markerBg} stroke={markerStroke}></rect>
               <line x1={x} y1={y-4} x2={x} y2={y+4} stroke={crosshairStroke} fill="none"></line>
               <line x1={x-4} y1={y} x2={x+4} y2={y} stroke={crosshairStroke} fill="none"></line>
             </g>
@@ -74,7 +68,6 @@ export default function Home() {
           {/* Tablet Markers */}
           {[278.5, 556.5].flatMap(x => [298.5, 597, 895.5].map(y => (
             <g key={`t-${x}-${y}`}>
-              <rect x={x - 10} y={y - 10} width="20" height="20" fill={markerBg} stroke={markerStroke}></rect>
               <line x1={x} y1={y-4} x2={x} y2={y+4} stroke={crosshairStroke} fill="none"></line>
               <line x1={x-4} y1={y} x2={x+4} y2={y} stroke={crosshairStroke} fill="none"></line>
             </g>
@@ -91,7 +84,6 @@ export default function Home() {
           {/* Mobile Markers */}
           {[131, 262].flatMap(x => [213, 426, 639].map(y => (
             <g key={`m-${x}-${y}`}>
-              <rect x={x - 8} y={y - 8} width="16" height="16" fill={markerBg} stroke={markerStroke}></rect>
               <line x1={x} y1={y-3} x2={x} y2={y+3} stroke={crosshairStroke} fill="none"></line>
               <line x1={x-3} y1={y} x2={x+3} y2={y} stroke={crosshairStroke} fill="none"></line>
             </g>
@@ -129,7 +121,7 @@ export default function Home() {
           
           <div className="flex items-center gap-6 md:gap-10">
             <button 
-              onClick={() => setIsDark(!isDark)} 
+              onClick={toggleTheme} 
               className="hidden lg:block text-[10px] uppercase tracking-[0.3em] font-bold border-b-2 border-white pb-1 cursor-pointer hover:text-[#ff4d00] hover:border-[#ff4d00] transition-all"
             >
               {isDark ? 'LIGHT' : 'DARK'}
@@ -175,7 +167,7 @@ export default function Home() {
                      <span>SYSTEMS_DESIGNER_ACTIVE</span>
                   </div>
                   <button 
-                   onClick={() => setIsDark(!isDark)} 
+                   onClick={toggleTheme} 
                    className="text-[10px] tracking-[0.5em] font-black border-b-2 border-[#ff4d00] text-[#ff4d00] pb-1"
                   >
                     {isDark ? 'LIGHT' : 'DARK'}

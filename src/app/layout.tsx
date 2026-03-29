@@ -23,6 +23,8 @@ export const metadata: Metadata = {
   description: "Portfolio of fawasam. Exploring the intersection of design, technology, and systems.",
 };
 
+import { ThemeProvider } from "@/context/ThemeContext";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -31,7 +33,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${handwriting.variable}`}>
       <body className="antialiased selection:bg-[#ff4d00] selection:text-white">
-        {children}
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

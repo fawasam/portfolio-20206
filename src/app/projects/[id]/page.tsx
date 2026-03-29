@@ -53,7 +53,7 @@ const PROJECTS_DATA: { [key: string]: any } = {
        { label: "CONTENT_MANAGEMENT", val: "STRAPI_HEADLESS_CMS" },
        { label: "SERVICE_AVAILABILITY", val: "INDUSTRIAL_STABILITY" }
     ],
-    images: ["/assets/muthoot_hero.png", "/assets/hero.png"]
+    images: ["/assets/muthoot_hero.jpg", "/assets/hero.png"]
   },
   "PRJ_003": {
     id: "PRJ_003",
@@ -241,27 +241,25 @@ const PROJECTS_DATA: { [key: string]: any } = {
   }
 };
 
+import { useTheme } from "@/context/ThemeContext";
+
 export default function ProjectDetail() {
   const params = useParams();
   const id = params.id as string;
   const project = PROJECTS_DATA[id] || PROJECTS_DATA["PRJ_001"]; // Fallback for demo
   
-  const [isDark, setIsDark] = useState(false);
+  const { theme, toggleTheme } = useTheme();
+  const isDark = theme === 'dark';
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const root = globalThis.document?.documentElement;
-    if (root) {
-      root.dataset.theme = isDark ? 'dark' : 'light';
-    }
-
     if (isMenuOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
     }
-  }, [isDark, isMenuOpen]);
+  }, [isMenuOpen]);
 
   const gridLine = isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.06)";
 
@@ -296,7 +294,7 @@ export default function ProjectDetail() {
           
           <div className="flex items-center gap-6 md:gap-10">
             <button 
-              onClick={() => setIsDark(!isDark)} 
+              onClick={toggleTheme} 
               className="hidden lg:block text-[9px] md:text-[10px] uppercase tracking-[0.3em] font-bold border-b-2 border-white pb-1"
             >
               {isDark ? 'LIGHT' : 'DARK'}
@@ -341,7 +339,7 @@ export default function ProjectDetail() {
                      <span>SYSTEMS_CONTEXT_ACTIVE</span>
                   </div>
                   <button 
-                   onClick={() => setIsDark(!isDark)} 
+                   onClick={toggleTheme} 
                    className="text-[10px] tracking-[0.5em] font-black border-b-2 border-[#ff4d00] text-[#ff4d00] pb-1"
                   >
                     {isDark ? 'LIGHT' : 'DARK'}
