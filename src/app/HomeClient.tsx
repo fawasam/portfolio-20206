@@ -385,7 +385,7 @@ export default function Home() {
             <span className="handwriting text-xl ml-8 rotate-[-2deg] hidden md:inline-block">// Portrait mode active</span>
           </div>
           
-          <h1 className="text-[14vw] md:text-[12vw] font-[900] tracking-tighter leading-[0.82] mb-12 uppercase">
+          <h1 className="text-[14vw] md:text-[12vw] font-[900] tracking-tighter leading-[0.82] mb-12 uppercase typing-cursor">
             CODE,<br />
             BY <span className="text-accent relative">
               DESIGN.
@@ -540,7 +540,7 @@ export default function Home() {
 
               <div className="lg:col-span-5 flex flex-col gap-8 md:gap-10">
                  <div className="space-y-4 md:space-y-6">
-                   <div className="flex items-center gap-4 technical-label opacity-40">
+                   <div className="flex items-center gap-4 technical-label opacity-40 line-grid-mobile-fix">
                       <span>ID: PRJ_001</span>
                       <div className="w-1 h-1 rounded-full bg-accent" />
                       <span>2024</span>
@@ -613,7 +613,7 @@ export default function Home() {
 
               <div className="lg:col-span-5 lg:order-1 flex flex-col gap-8 md:gap-10 text-left">
                  <div className="space-y-4 md:space-y-6">
-                   <div className="flex items-center gap-4 technical-label opacity-40">
+                   <div className="flex items-center gap-4 technical-label opacity-40 line-grid-mobile-fix">
                       <span>ID: PRJ_002</span>
                       <div className="w-1 h-1 rounded-full bg-accent" />
                       <span>2024</span>
@@ -826,9 +826,16 @@ export default function Home() {
              <span className="technical-label !text-[10px] opacity-20">Terms_01</span>
            </div>
 
-           <div className="technical-label !text-[8px] opacity-30 text-center md:text-right font-mono">
-              TIMESTAMP: {mounted ? new Date().toISOString() : "0000-00-00T00:00:00Z"}<br />
-              COORD: 12.9716° N, 77.5946° E
+           <div className="flex flex-col gap-1 items-center md:items-end technical-label !text-[8px] opacity-40 font-mono text-center md:text-right">
+              <div className="flex gap-4 items-center">
+                 <span>SYSTEM_LATENCY: 42MS</span>
+                 <div className="w-1 h-1 rounded-full bg-[#22c55e] animate-pulse" />
+                 <span>PAGE_LOAD: 0.04S</span>
+              </div>
+              <div className="mt-1">
+                 TIMESTAMP: {mounted ? new Date().toISOString() : "0000-00-00T00:00:00Z"}<br />
+                 COORD: 12.9716° N, 77.5946° E
+              </div>
            </div>
         </footer>
 

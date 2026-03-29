@@ -198,14 +198,18 @@ export default function ProjectDetail() {
             </div>
 
              {project.url && (
-               <div className="pb-8">
+               <div className="pb-8 space-y-4">
+                  <div className="flex items-center gap-3 px-1">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#22c55e] animate-pulse shadow-[0_0_8px_#22c55e]" />
+                    <span className="technical-label !text-[9px] font-black text-[#22c55e]">STATUS: OPERATIONAL_ONLINE</span>
+                  </div>
                   <a 
                     href={project.url} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center justify-between w-full px-6 py-4 border-2 border-accent text-accent font-black text-[10px] uppercase tracking-widest hover:bg-accent hover:text-white transition-all duration-300 group"
+                    className="flex items-center justify-between w-full px-6 py-4 border-2 border-accent text-accent font-black text-[10px] uppercase tracking-widest hover:bg-accent hover:text-white transition-all duration-300 group shadow-[4px_4px_0px_0px_rgba(255,77,0,0.1)] hover:shadow-none"
                   >
-                    <span>VISIT_LIVE_SYSTEM</span>
+                    <span>INVESTIGATE_OPERATION</span>
                     <ExternalLink className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                   </a>
                </div>
@@ -235,7 +239,7 @@ export default function ProjectDetail() {
                    {project.title.split('_').join(', ')}
                 </h1>
                 <div className="max-w-3xl">
-                   <p className="text-xl md:text-4xl font-light leading-tight tracking-tight">
+                   <p className="text-xl md:text-4xl font-light leading-[1.4] tracking-tight opacity-90">
                      {project.concepts.philosophy}
                    </p>
                 </div>
@@ -278,7 +282,7 @@ export default function ProjectDetail() {
                </div>
                <div className="space-y-8 md:space-y-12">
                   <div className="technical-label">02 // CONCEPTUAL_BREAKDOWN</div>
-                  <p className="text-lg md:text-2xl font-medium leading-relaxed opacity-80">
+                  <p className="text-lg md:text-2xl font-medium leading-[1.7] opacity-80 line-grid-mobile-fix">
                     {project.concepts.breakdown}
                   </p>
                   <div className="pt-4 md:pt-8 flex flex-col gap-4 md:gap-6">

@@ -21,6 +21,73 @@ body {
   overflow-x: hidden;
   background-color: var(--background);
   color: var(--foreground);
+  line-height: 1.6;
+}
+
+/* CRT Scanline Effect Overlay */
+.crt-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%,
+    rgba(0, 0, 0, 0.03) 50%
+  ),
+  linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.012),
+    rgba(0, 255, 0, 0.005),
+    rgba(0, 0, 255, 0.012)
+  );
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.4;
+}
+
+[data-theme='dark'] .crt-overlay {
+  opacity: 0.6;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%,
+    rgba(0, 0, 0, 0.1) 50%
+  ),
+  linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.02),
+    rgba(0, 255, 0, 0.01),
+    rgba(0, 0, 255, 0.02)
+  );
+  background-size: 100% 3px, 4px 100%;
+}
+
+/* Interactive Node Cursor */
+.node-hover {
+  cursor: crosshair !important;
+}
+
+a, button, [role="button"] {
+  cursor: crosshair;
+}
+
+/* Typing Animation Cursor */
+.typing-cursor::after {
+  content: '_';
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  from, to { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.line-grid-mobile-fix {
+  @media (max-width: 768px) {
+    border-top: none !important;
+    border-left: 2px solid var(--grid-line) !important;
+    padding-left: 1.5rem;
+  }
 }
 
 .bg-pattern {
