@@ -4,14 +4,117 @@ import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Code2, Layers, Database, Binary } from "lucide-react";
+import { Code2, Layers, Database, Binary, Send, Mail, User, BookOpen } from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
+
+function ContactForm() {
+  const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (res.ok) {
+        setStatus("success");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch (err) {
+      setStatus("error");
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="flex flex-col gap-8 w-full">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="flex flex-col gap-3">
+          <label className="technical-label !text-[10px] opacity-40">01_USER_NAME</label>
+          <input 
+            type="text" 
+            required
+            placeholder="INPUT NAME..."
+            value={formData.name}
+            onChange={(e) => setFormData({...formData, name: e.target.value})}
+            className="bg-transparent border-b border-grid-line p-4 focus:border-accent outline-none text-xl font-black uppercase tracking-tighter transition-all"
+          />
+        </div>
+        <div className="flex flex-col gap-3">
+          <label className="technical-label !text-[10px] opacity-40">02_EMAIL_PROTOCOL</label>
+          <input 
+            type="email" 
+            required
+            placeholder="INPUT EMAIL..."
+            value={formData.email}
+            onChange={(e) => setFormData({...formData, email: e.target.value})}
+            className="bg-transparent border-b border-grid-line p-4 focus:border-accent outline-none text-xl font-black uppercase tracking-tighter transition-all"
+          />
+        </div>
+      </div>
+      <div className="flex flex-col gap-3">
+        <label className="technical-label !text-[10px] opacity-40">03_SUBJECT_MANIFEST</label>
+        <input 
+          type="text" 
+          placeholder="INPUT SUBJECT..."
+          value={formData.subject}
+          onChange={(e) => setFormData({...formData, subject: e.target.value})}
+          className="bg-transparent border-b border-grid-line p-4 focus:border-accent outline-none text-xl font-black uppercase tracking-tighter transition-all"
+        />
+      </div>
+      <div className="flex flex-col gap-3">
+        <label className="technical-label !text-[10px] opacity-40">04_MESSAGE_DATA_BUFFER</label>
+        <textarea 
+          required
+          placeholder="TRANSMIT MESSAGE..."
+          rows={4}
+          value={formData.message}
+          onChange={(e) => setFormData({...formData, message: e.target.value})}
+          className="bg-transparent border border-grid-line p-6 focus:border-accent outline-none text-lg font-medium tracking-tight transition-all resize-none"
+        />
+      </div>
+      
+      <motion.button 
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
+        disabled={status === "loading"}
+        className={`w-full py-8 border-2 border-accent text-accent font-black text-2xl uppercase tracking-[0.5em] transition-all flex items-center justify-center gap-6 group overflow-hidden relative ${status === 'success' ? 'bg-accent/10' : ''}`}
+      >
+        <div className="absolute inset-x-0 h-full bg-accent translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+        <span className="relative z-10 group-hover:text-white transition-colors">
+          {status === "idle" && "INITIATE_TRANSMISSION"}
+          {status === "loading" && "TRANSMITTING..."}
+          {status === "success" && "TRANSMISSION_COMPLETE"}
+          {status === "error" && "RETRY_TRANSMISSION"}
+        </span>
+        <Send className="w-5 h-5 relative z-10 group-hover:text-white transition-colors group-hover:translate-x-4 group-hover:-translate-y-4 duration-500" />
+      </motion.button>
+      
+      {status === 'success' && (
+        <span className="technical-label text-[#22c55e] text-center">Protocol: Message successfully decentralized to system.</span>
+      )}
+      {status === 'error' && (
+        <span className="technical-label text-[#ef4444] text-center">Error: Handshake failed. System not accessible.</span>
+      )}
+    </form>
+  );
+}
 
 export default function Home() {
   const { theme, toggleTheme } = useTheme();
   const isDark = theme === 'dark';
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -306,7 +409,7 @@ export default function Home() {
                 </p>
                 <div className="technical-label text-[9px] border-l border-accent pl-4 flex flex-col gap-2">
                    <span>LOC: 12.9716° N, 77.5946° E</span>
-                   <span>TIME: {new Date().toLocaleTimeString()}</span>
+                   <span>TIME: {mounted ? new Date().toLocaleTimeString() : "00:00:00 AM"}</span>
                 </div>
               </div>
             </div>
@@ -634,6 +737,69 @@ export default function Home() {
           </motion.div>
         </section>
 
+        {/* Contact Section: PROTOCOL_HANDSHAKE */}
+        <section id="contact" className="px-6 md:px-24 py-48 border-t border-grid-line bg-background relative overflow-hidden">
+           {/* Visual background details */}
+           <div className="absolute top-0 right-0 p-12 opacity-5 pointer-events-none">
+              <span className="font-mono text-[20vw] font-black leading-none">@</span>
+           </div>
+
+           <motion.div 
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="grid grid-cols-1 lg:grid-cols-12 gap-20 relative z-10"
+           >
+              <div className="lg:col-span-12 flex flex-col gap-6 mb-12">
+                 <div className="technical-label flex items-center gap-4">
+                    <Mail className="w-4 h-4 text-accent" />
+                    <span>SYSTEM_CONTACT_BRIDGE_v1.2</span>
+                 </div>
+                 <h2 className="text-6xl sm:text-8xl md:text-9xl font-black tracking-tighter uppercase leading-[0.8] mb-8">
+                   Start a.<br /><span className="text-accent underline decoration-4 md:decoration-8 underline-offset-12">Session.</span>
+                 </h2>
+                 <p className="text-xl md:text-2xl font-medium opacity-60 max-w-2xl tracking-tight">
+                   For industrial architecture inquiries, system optimizations, or global collaborations, 
+                   initiate the handshake protocol below.
+                 </p>
+              </div>
+
+              <div className="lg:col-span-8">
+                 <ContactForm />
+              </div>
+
+              <div className="lg:col-span-4 flex flex-col gap-12">
+                 <div className="border border-grid-line p-10 space-y-8 h-fit bg-foreground/[0.01] dark:bg-white/[0.01]">
+                    <div className="space-y-4">
+                       <span className="technical-label !text-[8px] opacity-40">DIRECT_NODES</span>
+                       <div className="flex flex-col gap-3">
+                          <a href="mailto:fawasam32@gmail.com" className="group flex items-center gap-4">
+                             <div className="w-8 h-8 rounded-full border border-grid-line flex items-center justify-center group-hover:border-accent transition-colors">
+                                <Mail className="w-3 h-3 group-hover:text-accent" />
+                             </div>
+                             <span className="font-mono text-xs opacity-60 group-hover:opacity-100 group-hover:text-accent transition-all">fawasam32@gmail.com</span>
+                          </a>
+                          <div className="flex items-center gap-4">
+                             <div className="w-8 h-8 rounded-full border border-grid-line flex items-center justify-center">
+                                <User className="w-3 h-3" />
+                             </div>
+                             <span className="font-mono text-xs opacity-60">@fawasam</span>
+                          </div>
+                       </div>
+                    </div>
+
+                    <div className="space-y-4 pt-8 border-t border-grid-line">
+                       <span className="technical-label !text-[8px] opacity-40">AVAILABILITY_STATE</span>
+                       <div className="flex items-center gap-4">
+                          <div className="w-2 h-2 rounded-full bg-[#22c55e] animate-pulse shadow-[0_0_10px_#22c55e]" />
+                          <span className="technical-label !text-[10px] font-black">ACTIVE_FOR_NEW_VENTURES</span>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </motion.div>
+        </section>
+
         {/* Global Footer */}
         <footer className="px-6 md:px-24 py-16 flex flex-col md:flex-row justify-between items-center border-t border-grid-line gap-12">
            <div className="flex flex-col gap-4 items-center md:items-start">
@@ -648,7 +814,7 @@ export default function Home() {
            </div>
 
            <div className="technical-label !text-[8px] opacity-30 text-center md:text-right font-mono">
-              TIMESTAMP: {new Date().toISOString()}<br />
+              TIMESTAMP: {mounted ? new Date().toISOString() : "0000-00-00T00:00:00Z"}<br />
               COORD: 12.9716° N, 77.5946° E
            </div>
         </footer>

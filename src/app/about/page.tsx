@@ -26,15 +26,15 @@ export default function AboutPage() {
   const crosshairStroke = isDark ? "rgba(255,255,255,0.3)" : "rgba(0,0,0,0.25)";
 
   const contactNodes = [
-    { label: "EMAIL", value: "mynamefawas@gmail.com", icon: Mail, ref: "EP-LINK-01" },
+    { label: "EMAIL", value: "fawasam32@gmail.com", icon: Mail, ref: "EP-LINK-01" },
     { label: "PHONE", value: "+91 9645885706", icon: Phone, ref: "EP-LINK-02" },
     { label: "LOCATION", value: "Calicut, India", icon: MapPin, ref: "EP-LINK-03" },
     { label: "WEBSITE", value: "fawasam.me", icon: Globe, ref: "EP-LINK-04" },
   ];
 
   const socialLinks = [
-    { label: "LINKEDIN", href: "https://linkedin.com", icon: User },
-    { label: "GITHUB", href: "https://github.com", icon: User },
+    { label: "LINKEDIN", href: "https://www.linkedin.com/in/fawas-am/", icon: User },
+    { label: "GITHUB", href: "https://github.com/fawasam", icon: User },
   ];
 
   const certifications = [

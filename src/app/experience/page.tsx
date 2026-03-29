@@ -12,6 +12,11 @@ export default function ExperiencePage() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -495,7 +500,7 @@ export default function ExperiencePage() {
                <span className="font-black text-xs uppercase tracking-[0.4em]">Return_to_Systems</span>
             </Link>
             <div className="technical-label !text-[8px] opacity-30 text-right">
-               TIMESTAMP: {new Date().toISOString()}<br />
+               TIMESTAMP: {mounted ? new Date().toISOString() : "0000-00-00T00:00:00Z"}<br />
                LOG_LEVEL: SYSTEM_VERIFIED
             </div>
          </footer>

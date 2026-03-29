@@ -104,6 +104,11 @@ export default function ProjectsListing() {
   const isDark = theme === 'dark';
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -312,7 +317,7 @@ export default function ProjectsListing() {
             DOCUMENTATION_ID: ARCHIVE_INDEX_00
          </div>
          <div className="technical-label opacity-30 !text-[8px] text-right">
-            TIMESTAMP: {new Date().toISOString()}
+            TIMESTAMP: {mounted ? new Date().toISOString() : "0000-00-00T00:00:00Z"}
          </div>
       </footer>
 
