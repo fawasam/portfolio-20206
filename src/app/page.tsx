@@ -322,12 +322,12 @@ export default function Home() {
                    className="object-cover grayscale contrast-125 opacity-40 group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
                    onError={(e) => { e.currentTarget.style.display = 'none'; }}
                  />
-                 <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60" />
-                 <div className="absolute bottom-0 left-0 p-8 md:p-12 z-10 w-full flex justify-between items-end">
-                    <span className="text-white font-mono text-xl md:text-2xl opacity-20">01</span>
-                    <div className="flex flex-col gap-3 md:gap-4 items-end text-right">
-                      <span className="technical-label !text-white !opacity-100 bg-accent px-3 py-1 self-end">DEPLOYMENT_ACTIVE</span>
-                      <h3 className="text-4xl md:text-7xl font-black text-white tracking-tighter uppercase leading-none text-right">THE_LAUNDRY_HUB</h3>
+                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80" />
+                 <div className="absolute bottom-0 left-0 p-6 md:p-10 z-10 w-full flex justify-between items-end">
+                    <span className="text-white font-mono text-lg md:text-xl opacity-40"></span>
+                    <div className="flex flex-col gap-2 md:gap-3 items-end text-right max-w-[90%]">
+                      <span className="technical-label !text-white !opacity-100 bg-accent px-2 py-0.5 md:px-3 md:py-1 self-end text-[8px] md:text-[10px]">DEPLOYMENT_ACTIVE</span>
+                      <h3 className="text-xl sm:text-4xl md:text-5xl lg:text-7xl font-black text-white tracking-tighter uppercase leading-none text-right">THE_LAUNDRY_HUB</h3>
                     </div>
                  </div>
               </div>
@@ -394,12 +394,12 @@ export default function Home() {
                    className="object-cover grayscale contrast-125 opacity-40 group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
                    onError={(e) => { e.currentTarget.style.display = 'none'; }}
                  />
-                 <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60" />
-                 <div className="absolute bottom-0 left-0 lg:left-auto lg:right-0 p-8 md:p-12 z-10 w-full flex justify-between items-end text-left lg:text-right">
-                    <span className="text-white font-mono text-xl md:text-2xl opacity-20">02</span>
-                    <div className="flex flex-col gap-3 md:gap-4 items-end">
-                      <span className="technical-label !text-white !opacity-100 bg-[#ff4d00] px-3 py-1 self-end">DOCKER_GRID_ACTIVE</span>
-                      <h3 className="text-4xl md:text-7xl font-black text-white tracking-tighter uppercase leading-none">Muthoot_Capital</h3>
+                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80" />
+                 <div className="absolute bottom-0 left-0 lg:left-auto lg:right-0 p-6 md:p-10 z-10 w-full flex justify-between items-end text-left lg:text-right">
+                    <span className="text-white font-mono text-lg md:text-xl opacity-40"></span>
+                    <div className="flex flex-col gap-2 md:gap-3 items-end max-w-[90%]">
+                      <span className="technical-label !text-white !opacity-100 bg-[#ff4d00] px-2 py-0.5 md:px-3 md:py-1 self-end text-[8px] md:text-[10px]">DOCKER_GRID_ACTIVE</span>
+                      <h3 className="text-xl sm:text-4xl md:text-5xl lg:text-7xl font-black text-white tracking-tighter uppercase leading-none text-right">Muthoot_Capital</h3>
                     </div>
                  </div>
               </div>
