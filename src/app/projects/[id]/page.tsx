@@ -52,7 +52,7 @@ const PROJECTS_DATA: { [key: string]: any } = {
        { label: "CONTENT_MANAGEMENT", val: "STRAPI_HEADLESS_CMS" },
        { label: "SERVICE_AVAILABILITY", val: "INDUSTRIAL_STABILITY" }
     ],
-    images: ["/assets/muthoot_main.png", "/assets/hero.png"]
+    images: ["/assets/muthoot_hero.png", "/assets/hero.png"]
   },
   "PRJ_003": {
     id: "PRJ_003",

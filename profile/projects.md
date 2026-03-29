@@ -28,7 +28,7 @@
 
 ### 03. VISUAL_SYSTEM
 *Artifacts from the logistical interface.*
-1. **[ /assets/laundry_hub_main.png ]** — *The central dashboard: A study in hierarchical data management and user flow.*
+1. **[ /assets/laundry_hub_hero.jpg ]** — *The central logistic manifest: A study in hierarchical data management and user flow.*
 2. **[ /assets/laundry_hub_mobile.png ]** — *Real-time tracking: Visualizing logistical latency and operational transparency.*
 
 ### 04. SYSTEM_IMPACT
@@ -65,7 +65,7 @@
 
 ### 03. VISUAL_SYSTEM
 *Artifacts from the financial interface.*
-1. **[ /assets/muthoot_main.png ]** — *Digital Initiatives: A study in hierarchical financial data visualization.*
+1. **[ /assets/muthoot_hero.png ]** — *Digital Initiatives: A study in hierarchical financial data visualization.*
 2. **[ /assets/muthoot_mobile.png ]** — *User Trust Interface: Clean, professional UX for loan management.*
 
 ### 04. SYSTEM_IMPACT

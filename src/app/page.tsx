@@ -258,14 +258,16 @@ export default function Home() {
                <span className="technical-label !text-[9px] opacity-25 group-hover:opacity-100 transition-opacity">
                   <span className="text-accent">{anno.symbol}</span> {anno.text}
                </span>
-               <div className="w-12 h-[1px] bg-foreground/10 group-hover:w-20 group-hover:bg-accent transition-all duration-500" />
             </div>
           </motion.div>
         ))}
       </section>
 
+      {/* High-Fidelity Architectural Manifest: EXACT DESIGN ALIGNMENT */}
+  
+
       {/* Grid Alignment Showcase */}
-      <section className="relative px-8 md:px-24 py-32 border-t border-grid-line">
+      {/* <section className="relative px-8 md:px-24 py-32 border-t border-grid-line">
          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
             {[
               { id: '01', title: 'Logic Systems', desc: 'Crafting robust architectures for modern web applications.' },
@@ -282,13 +284,13 @@ export default function Home() {
                  <h3 className="text-3xl font-black mb-4 tracking-tighter uppercase">{item.title}</h3>
                  <p className="text-sm opacity-50 leading-relaxed font-light group-hover:opacity-80 transition-opacity">{item.desc}</p>
               </motion.div>
-             ))}
+            ))}
           </div>
-        </section>
+        </section> */}
 
         {/* Realized Systems: SELECTED_OPERATIONS */}
-        <section className="px-8 md:px-24 py-32 border-t border-grid-line">
-          <div className="flex flex-col gap-32">
+        <section className="px-6 md:px-24 py-32 border-t border-grid-line">
+          <div className="flex flex-col gap-20 md:gap-32">
             
             <motion.div 
                initial={{ opacity: 0 }}
@@ -300,7 +302,7 @@ export default function Home() {
                   <span className="symbol">✦</span>
                   <span>SYSTEM_MANIFEST_v0.1</span>
                </div>
-               <h2 className="text-6xl md:text-8xl font-black tracking-tighter uppercase leading-none">
+               <h2 className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tighter uppercase leading-[0.9]">
                   Realized.<br /><span className="text-accent underline decoration-4 underline-offset-8">Systems.</span>
                </h2>
             </motion.div>
@@ -312,7 +314,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="group relative grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
             >
-              <div className="lg:col-span-7 relative h-[60vh] min-h-[400px] border border-grid-line overflow-hidden bg-background/50 backdrop-blur-sm group-hover:border-accent transition-all duration-700">
+              <div className="lg:col-span-7 relative aspect-video lg:h-[60vh] lg:aspect-auto border border-grid-line overflow-hidden bg-background/50 backdrop-blur-sm group-hover:border-accent transition-all duration-700">
                  <Image 
                    src="/assets/laundry_hub_hero.jpg" 
                    alt="The Laundry Hub - Logistics Platform" 
@@ -321,17 +323,17 @@ export default function Home() {
                    onError={(e) => { e.currentTarget.style.display = 'none'; }}
                  />
                  <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60" />
-                 <div className="absolute bottom-0 left-0 p-12 z-10 w-full flex justify-between items-end">
-                    <span className="text-white font-mono text-2xl opacity-20">01</span>
-                    <div className="flex flex-col gap-4 items-end text-right">
+                 <div className="absolute bottom-0 left-0 p-8 md:p-12 z-10 w-full flex justify-between items-end">
+                    <span className="text-white font-mono text-xl md:text-2xl opacity-20">01</span>
+                    <div className="flex flex-col gap-3 md:gap-4 items-end text-right">
                       <span className="technical-label !text-white !opacity-100 bg-accent px-3 py-1 self-end">DEPLOYMENT_ACTIVE</span>
-                      <h3 className="text-5xl md:text-7xl font-black text-white tracking-tighter uppercase leading-none text-right">THE_LAUNDRY_HUB</h3>
+                      <h3 className="text-4xl md:text-7xl font-black text-white tracking-tighter uppercase leading-none text-right">THE_LAUNDRY_HUB</h3>
                     </div>
                  </div>
               </div>
 
-              <div className="lg:col-span-5 flex flex-col gap-10">
-                 <div className="space-y-6">
+              <div className="lg:col-span-5 flex flex-col gap-8 md:gap-10">
+                 <div className="space-y-4 md:space-y-6">
                    <div className="flex items-center gap-4 technical-label opacity-40">
                       <span>ID: PRJ_001</span>
                       <div className="w-1 h-1 rounded-full bg-accent" />
@@ -348,11 +350,11 @@ export default function Home() {
                  <div className="grid grid-cols-2 gap-8 py-8 border-y border-grid-line">
                     <div>
                       <span className="technical-label text-[9px] opacity-40 block mb-3">SYSTEM_CORE</span>
-                      <span className="font-mono text-[10px] font-bold uppercase tracking-widest">Next.js / Express / Mongo</span>
+                      <span className="font-mono text-[10px] font-bold uppercase tracking-widest leading-relaxed">Next.js / Express / Mongo</span>
                     </div>
                     <div>
                       <span className="technical-label text-[9px] opacity-40 block mb-3">NODES_DEPLOYED</span>
-                      <span className="font-mono text-[10px] font-bold uppercase tracking-widest">PayTabs / Live Sockets</span>
+                      <span className="font-mono text-[10px] font-bold uppercase tracking-widest leading-relaxed">PayTabs / Live Sockets</span>
                     </div>
                  </div>
 
@@ -384,27 +386,27 @@ export default function Home() {
               viewport={{ once: true }}
               className="group relative grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
             >
-              <div className="lg:col-span-7 lg:order-2 relative h-[60vh] min-h-[400px] border border-grid-line overflow-hidden bg-background/50 backdrop-blur-sm group-hover:border-accent transition-all duration-700">
+              <div className="lg:col-span-7 lg:order-2 relative aspect-video lg:h-[60vh] lg:aspect-auto border border-grid-line overflow-hidden bg-background/50 backdrop-blur-sm group-hover:border-accent transition-all duration-700">
                  <Image 
-                   src="/assets/muthoot_main.png" 
+                   src="/assets/muthoot_hero.jpg" 
                    alt="Muthoot Capital - Financial Platform" 
                    fill
                    className="object-cover grayscale contrast-125 opacity-40 group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
                    onError={(e) => { e.currentTarget.style.display = 'none'; }}
                  />
                  <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60" />
-                 <div className="absolute bottom-0 right-0 p-12 z-10 w-full flex justify-between items-end text-right">
-                    <span className="text-white font-mono text-2xl opacity-20">02</span>
-                    <div className="flex flex-col gap-4 items-end">
+                 <div className="absolute bottom-0 left-0 lg:left-auto lg:right-0 p-8 md:p-12 z-10 w-full flex justify-between items-end text-left lg:text-right">
+                    <span className="text-white font-mono text-xl md:text-2xl opacity-20">02</span>
+                    <div className="flex flex-col gap-3 md:gap-4 items-end">
                       <span className="technical-label !text-white !opacity-100 bg-[#ff4d00] px-3 py-1 self-end">DOCKER_GRID_ACTIVE</span>
-                      <h3 className="text-5xl md:text-7xl font-black text-white tracking-tighter uppercase leading-none">Muthoot_Capital</h3>
+                      <h3 className="text-4xl md:text-7xl font-black text-white tracking-tighter uppercase leading-none">Muthoot_Capital</h3>
                     </div>
                  </div>
               </div>
 
-              <div className="lg:col-span-5 lg:order-1 flex flex-col gap-10 text-right lg:text-left">
-                 <div className="space-y-6">
-                   <div className="flex items-center justify-end lg:justify-start gap-4 technical-label opacity-40">
+              <div className="lg:col-span-5 lg:order-1 flex flex-col gap-8 md:gap-10 text-left">
+                 <div className="space-y-4 md:space-y-6">
+                   <div className="flex items-center gap-4 technical-label opacity-40">
                       <span>ID: PRJ_002</span>
                       <div className="w-1 h-1 rounded-full bg-accent" />
                       <span>2024</span>
@@ -412,7 +414,7 @@ export default function Home() {
                    <p className="text-xl md:text-2xl leading-tight font-medium tracking-tight">
                       Deploying robust enterprise financial nodes for secure loan payments and fixed deposit instruments.
                    </p>
-                   <p className="opacity-40 text-sm leading-relaxed max-w-lg ml-auto lg:ml-0">
+                   <p className="opacity-40 text-sm leading-relaxed max-w-lg">
                       Engineered a fully featured financial ecosystem using a Headless Strapi CMS. Orchestrated complex transaction logic and EMI calculations within a containerized Docker grid.
                    </p>
                  </div>
@@ -420,15 +422,15 @@ export default function Home() {
                  <div className="grid grid-cols-2 gap-8 py-8 border-y border-grid-line">
                     <div>
                       <span className="technical-label text-[9px] opacity-40 block mb-3">SYSTEM_CORE</span>
-                      <span className="font-mono text-[10px] font-bold uppercase tracking-widest">Next.js / TypeScript / Strapi</span>
+                      <span className="font-mono text-[10px] font-bold uppercase tracking-widest leading-relaxed">Next.js / TypeScript / Strapi</span>
                     </div>
                     <div>
                       <span className="technical-label text-[9px] opacity-40 block mb-3">DEPLOYMENT_NODE</span>
-                      <span className="font-mono text-[10px] font-bold uppercase tracking-widest">Docker Compose / MySQL</span>
+                      <span className="font-mono text-[10px] font-bold uppercase tracking-widest leading-relaxed">Docker Compose / MySQL</span>
                     </div>
                  </div>
 
-                 <div className="flex flex-wrap justify-end lg:justify-start gap-3">
+                 <div className="flex flex-wrap gap-3">
                     {['LOAN_SETTLEMENT', 'FD_INTERFACE', 'ENTERPRISE_CMS', 'SECURITY_LAYER'].map(tag => (
                       <span key={tag} className="text-[9px] font-mono border border-foreground/10 px-3 py-1 uppercase opacity-60 hover:opacity-100 hover:border-accent transition-all flex items-center gap-2">
                          <span className="w-1 h-1 rounded-full bg-accent" />
@@ -439,11 +441,11 @@ export default function Home() {
 
                  <Link href="/projects/PRJ_002">
                    <motion.button 
-                     whileHover={{ x: -10 }}
-                     className="flex items-center justify-end lg:justify-start gap-6 group/btn mt-4 lg:flex-row-reverse"
+                     whileHover={{ x: 10 }}
+                     className="flex items-center gap-6 group/btn mt-4 lg:flex-row-reverse lg:justify-end"
                    >
                       <span className="font-black text-xs uppercase tracking-[0.4em] border-b-2 border-accent pb-2">Investigate_Operation</span>
-                      <span className="symbol text-accent group-hover/btn:-translate-x-2 transition-transform duration-300 rotate-180">→</span>
+                      <span className="symbol text-accent group-hover/btn:translate-x-2 lg:group-hover/btn:-translate-x-2 transition-transform duration-300 lg:rotate-180">→</span>
                    </motion.button>
                  </Link>
               </div>
