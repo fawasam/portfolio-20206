@@ -334,7 +334,7 @@ export default function Home() {
               <div className="space-y-4">
                 <span className="technical-label opacity-40">ACTIVE MODULES</span>
                 <div className="flex flex-wrap gap-2">
-                  {['GEN_AI', 'NEURAL_MESH', 'VISUAL_SYSTEM', 'CORE_OS'].map(mod => (
+                  {['AI', 'DEVOPS_TOOL', 'RAG', 'AGENTIC_AI'].map(mod => (
                     <span key={mod} className="text-[10px] font-mono border border-foreground/20 px-3 py-1 uppercase font-bold hover:bg-foreground hover:text-background transition-colors cursor-crosshair">
                       {mod}
                     </span>
