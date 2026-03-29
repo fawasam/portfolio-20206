@@ -1,4 +1,5 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import { generateViewport as baseGenerateViewport, getPageMetadata } from "@/lib/metadata-seo";
 import { Geist, Geist_Mono, Architects_Daughter } from "next/font/google";
 import "./globals.css";
 
@@ -18,10 +19,13 @@ const handwriting = Architects_Daughter({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "fawasam — Design & Systems",
-  description: "Portfolio of fawasam. Exploring the intersection of design, technology, and systems.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return getPageMetadata("home");
+}
+
+export async function generateViewport(): Promise<Viewport> {
+  return baseGenerateViewport();
+}
 
 import { ThemeProvider } from "@/context/ThemeContext";
 
