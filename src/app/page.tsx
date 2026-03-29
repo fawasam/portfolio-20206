@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Code2, Layers, Database, Binary, Send, Mail, User, BookOpen } from "lucide-react";
+import { Code2, Layers, Database, Binary, Send, Mail, User, BookOpen, Cloud, GitBranch } from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
 
 function ContactForm() {
@@ -42,7 +42,7 @@ function ContactForm() {
             placeholder="INPUT NAME..."
             value={formData.name}
             onChange={(e) => setFormData({...formData, name: e.target.value})}
-            className="bg-transparent border-b border-grid-line p-4 focus:border-accent outline-none text-xl font-black uppercase tracking-tighter transition-all"
+            className="bg-transparent border-b border-grid-line p-4 focus:border-accent outline-none text-xl font-black uppercase tracking-tighter transition-all placeholder:opacity-30"
           />
         </div>
         <div className="flex flex-col gap-3">
@@ -53,7 +53,7 @@ function ContactForm() {
             placeholder="INPUT EMAIL..."
             value={formData.email}
             onChange={(e) => setFormData({...formData, email: e.target.value})}
-            className="bg-transparent border-b border-grid-line p-4 focus:border-accent outline-none text-xl font-black uppercase tracking-tighter transition-all"
+            className="bg-transparent border-b border-grid-line p-4 focus:border-accent outline-none text-xl font-black uppercase tracking-tighter transition-all placeholder:opacity-30"
           />
         </div>
       </div>
@@ -64,7 +64,7 @@ function ContactForm() {
           placeholder="INPUT SUBJECT..."
           value={formData.subject}
           onChange={(e) => setFormData({...formData, subject: e.target.value})}
-          className="bg-transparent border-b border-grid-line p-4 focus:border-accent outline-none text-xl font-black uppercase tracking-tighter transition-all"
+          className="bg-transparent border-b border-grid-line p-4 focus:border-accent outline-none text-xl font-black uppercase tracking-tighter transition-all placeholder:opacity-30"
         />
       </div>
       <div className="flex flex-col gap-3">
@@ -75,7 +75,7 @@ function ContactForm() {
           rows={4}
           value={formData.message}
           onChange={(e) => setFormData({...formData, message: e.target.value})}
-          className="bg-transparent border border-grid-line p-6 focus:border-accent outline-none text-lg font-medium tracking-tight transition-all resize-none"
+          className="bg-transparent border border-grid-line p-6 focus:border-accent outline-none text-lg font-medium tracking-tight transition-all resize-none placeholder:opacity-30"
         />
       </div>
       
@@ -83,7 +83,7 @@ function ContactForm() {
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
         disabled={status === "loading"}
-        className={`w-full py-8 border-2 border-accent text-accent font-black text-2xl uppercase tracking-[0.5em] transition-all flex items-center justify-center gap-6 group overflow-hidden relative ${status === 'success' ? 'bg-accent/10' : ''}`}
+        className={`w-full py-6 md:py-8 border-2 border-accent text-accent font-black text-xs md:text-2xl uppercase tracking-[0.2em] md:tracking-[0.5em] transition-all flex items-center justify-center gap-6 group overflow-hidden relative ${status === 'success' ? 'bg-accent/10' : ''}`}
       >
         <div className="absolute inset-x-0 h-full bg-accent translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
         <span className="relative z-10 group-hover:text-white transition-colors">
@@ -674,30 +674,40 @@ export default function Home() {
                 </h2>
              </div>
 
-             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
                 {[
                   {
                     category: "LANGUAGES",
                     icon: "Code2",
-                    skills: ["JavaScript", "Python", "PHP", "SQL", "HTML", "CSS"]
+                    skills: ["TypeScript", "JavaScript", "Python", "PHP", "SQL", "HTML", "CSS"]
                   },
                   {
                     category: "FRAMEWORKS",
                     icon: "Layers",
-                    skills: ["React", "Node.js", "Langchain"]
+                    skills: ["Next.js", "React", "Node.js", "Express.js", "Strapi", "Langchain"]
                   },
                   {
                     category: "DATABASES",
                     icon: "Database",
-                    skills: ["MySQL", "Postgres"]
+                    skills: ["MySQL", "Postgres", "MongoDB", "Pinecone", "Elasticsearch"]
                   },
                   {
                     category: "TOOLS_DEV",
                     icon: "Binary",
                     skills: ["Google Colab", "Matlab", "Microsoft Office"]
+                  },
+                  {
+                    category: "DEVOPS",
+                    icon: "Cloud",
+                    skills: ["AWS", "ECS", "CodePipeline", "CodeBuild", "ECR", "Amplify", "EC2", "S3"]
+                  },
+                  {
+                    category: "CI/CD & INFRA",
+                    icon: "GitBranch",
+                    skills: ["Docker", "Jenkins", "Git", "GitHub Actions", "ArgoCD", "Grafana", "Prometheus", "Terraform"]
                   }
                 ].map((group, idx) => {
-                  const IconComponent = group.icon === "Code2" ? Code2 : group.icon === "Layers" ? Layers : group.icon === "Database" ? Database : Binary;
+                  const IconComponent = group.icon === "Code2" ? Code2 : group.icon === "Layers" ? Layers : group.icon === "Database" ? Database : group.icon === "Cloud" ? Cloud : group.icon === "GitBranch" ? GitBranch : Binary;
                   return (
                     <motion.div 
                       key={idx}
