@@ -116,15 +116,68 @@ function ContactForm() {
   );
 }
 
+const HERO_CONFIGS = [
+  {
+    line1: "CODE,",
+    line2: "BY",
+    highlight: "DESIGN.",
+    subHeadline: "I build systems that shape how humans and technology interact.",
+    description: "From scalable backend architectures to intelligent interfaces, my work lives at the intersection of logic and experience.",
+    keyDetail: "LIVE_FEED_01"
+  },
+  {
+    line1: "ARCHITECTING",
+    line2: "DIGITAL",
+    highlight: "RESILIENCE.",
+    subHeadline: "Engineering high-concurrency systems and autonomous infrastructures that turn complex logic into seamless human experiences.",
+    description: "Building systems that scale effortlessly under pressure, ensuring robust operations.",
+    keyDetail: "[LATENCY_OPTIMIZED] // [SCALED_FOR_GROWTH]"
+  },
+  {
+    line1: "SYSTEMS",
+    line2: "WITH",
+    highlight: "INTELLIGENCE._",
+    subHeadline: "Beyond code—I build agentic architectures and neural meshes that bridge the gap between static data and active intelligence.",
+    description: "Integrating state-of-the-art AI solutions to elevate user experiences and drive innovation.",
+    keyDetail: "[GEN_AI_ORCHESTRATOR] // [RAG_PROTOCOL_ACTIVE]"
+  },
+  {
+    line1: "LOGIC.",
+    line2: "SCALED.",
+    highlight: "REALIZED.",
+    subHeadline: "Senior Systems Architect specializing in the design of robust backend grids and fluid, high-performance interfaces.",
+    description: "From concept to deployment, turning abstract algorithms into tangible, high-impact products.",
+    keyDetail: "[STATUS: READY_FOR_DEPLOYMENT]"
+  },
+  {
+    line1: "PIXELS",
+    line2: "TO",
+    highlight: "PIPELINES.",
+    subHeadline: "Architecting end-to-end solutions, connecting resilient back-end systems with meticulously crafted, high-performance user interfaces.",
+    description: "Bridging visually striking frontends with highly performant, scalable server-side systems.",
+    keyDetail: "[FULL_STACK_MASTERY] // [PIXEL_PERFECT]"
+  },
+  {
+    line1: "DECODING",
+    line2: "",
+    highlight: "COMPLEXITY.",
+    subHeadline: "Transforming intricate business requirements into elegant, scalable software ecosystems that drive tangible results.",
+    description: "Distilling complex problems to their core and building scalable, maintainable architectures.",
+    keyDetail: "[PROBLEM_SOLVER] // [SYSTEMS_THINKER]"
+  }
+];
+
 export default function Home() {
   const { theme } = useTheme();
   const isDark = theme === 'dark';
   const containerRef = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(false);
+  const [heroIndex, setHeroIndex] = useState(0);
   const [perfMetrics, setPerfMetrics] = useState({ latency: '0', load: '0.00' });
 
   useEffect(() => {
     setMounted(true);
+    setHeroIndex(Math.floor(Math.random() * HERO_CONFIGS.length));
     // Performance Easter Egg
     const nav = window.performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
     if (nav) {
@@ -226,7 +279,7 @@ export default function Home() {
         >
           <div className="relative w-full h-full border border-grid-line p-2 bg-background/50 backdrop-blur-md group hover:border-accent transition-all duration-700">
             <div className="absolute top-0 right-0 p-4 mix-blend-difference z-10 opacity-60 group-hover:opacity-100 transition-opacity">
-               <span className="technical-label !text-[8px] text-white tracking-[0.4em]">LIVE_FEED_01</span>
+               <span className="technical-label !text-[8px] text-white tracking-[0.4em]">{mounted ? HERO_CONFIGS[heroIndex].keyDetail : HERO_CONFIGS[0].keyDetail}</span>
             </div>
             <div className="w-full h-full overflow-hidden relative">
               <Image 
@@ -267,9 +320,11 @@ export default function Home() {
           </div>
           
           <h1 className="text-[14vw] md:text-[12vw] font-[900] tracking-tighter leading-[0.82] mb-12 uppercase typing-cursor">
-            CODE,<br />
-            BY <span className="text-accent relative">
-              DESIGN.
+            {mounted ? HERO_CONFIGS[heroIndex].line1 : HERO_CONFIGS[0].line1}<br />
+            {(mounted ? HERO_CONFIGS[heroIndex].line2 : HERO_CONFIGS[0].line2) && (
+              <>{mounted ? HERO_CONFIGS[heroIndex].line2 : HERO_CONFIGS[0].line2} </>
+            )}<span className="text-accent relative">
+              {mounted ? HERO_CONFIGS[heroIndex].highlight : HERO_CONFIGS[0].highlight}
               <motion.span 
                 animate={{ opacity: [1, 0, 1] }}
                 transition={{ duration: 0.8, repeat: Infinity }}
@@ -301,7 +356,7 @@ export default function Home() {
                     className="object-cover grayscale contrast-110 scale-x-[-1] group-hover:scale-[-1.05] transition-transform duration-1000"
                   />
                   <div className="absolute top-0 right-0 p-4 mix-blend-difference z-10 opacity-60">
-                    <span className="technical-label !text-[8px] text-white tracking-[0.4em]">LIVE_FEED_01</span>
+                    <span className="technical-label !text-[8px] text-white tracking-[0.4em]">{mounted ? HERO_CONFIGS[heroIndex].keyDetail : HERO_CONFIGS[0].keyDetail}</span>
                   </div>
                 </div>
                 {/* Tactical Corners */}
@@ -310,12 +365,11 @@ export default function Home() {
               </motion.div>
 
               <p className="text-2xl md:text-5xl leading-[1.1] font-medium tracking-tight max-w-[50rem]">
-                I build systems that shape how humans and technology interact.
+                {mounted ? HERO_CONFIGS[heroIndex].subHeadline : HERO_CONFIGS[0].subHeadline}
               </p>
               <div className="flex flex-col md:flex-row gap-8 items-start">
                 <p className="opacity-40 text-lg md:text-xl max-w-xl leading-relaxed font-light">
-                  From scalable backend architectures to intelligent interfaces, 
-                  my work lives at the intersection of logic and experience.
+                  {mounted ? HERO_CONFIGS[heroIndex].description : HERO_CONFIGS[0].description}
                 </p>
                 <div className="technical-label text-[9px] border-l border-accent pl-4 flex flex-col gap-2">
                    <span>LOC: 12.9716° N, 77.5946° E</span>
