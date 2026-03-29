@@ -27,7 +27,7 @@ export default function ProjectDetail() {
 
 
       {/* Project Schematic Layout */}
-      <section className="pt-32 md:pt-40 px-6 md:px-24 pb-24 md:pb-32">
+      <section className="pt-40 md:pt-48 px-6 md:px-24 pb-24 md:pb-32">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-24">
           
           {/* Metadata Sidebar (Schematic Style) */}

@@ -209,7 +209,7 @@ export default function Home() {
 
 
       {/* Hero Section */}
-      <section className="min-h-screen flex flex-col justify-center px-8 md:px-24 py-32 relative overflow-hidden">
+      <section className="min-h-screen flex flex-col justify-center px-8 md:px-24 pt-48 md:pt-64 pb-32 relative overflow-hidden">
         
         {/* Small Framed Portrait Pod */}
         <motion.div 

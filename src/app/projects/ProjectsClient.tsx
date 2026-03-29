@@ -167,7 +167,7 @@ export default function ProjectsListing() {
       
 
       {/* Projects Title Branding */}
-      <section className="pt-28 md:pt-48 px-6 md:px-24">
+      <section className="pt-36 md:pt-48 px-6 md:px-24">
          <div className="flex flex-col gap-4 md:gap-6 max-w-4xl">
             <div className="technical-label flex items-center gap-4">
                <span className="symbol animate-pulse text-accent">✦</span>
