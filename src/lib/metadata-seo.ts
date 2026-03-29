@@ -140,7 +140,7 @@ const getOrganizationSchema = () => ({
   "@type": "Person",
   name: "fawasam",
   url: defaultConfig.siteUrl,
-  image: `${defaultConfig.siteUrl}/assets/fawasam_portrait.jpg`,
+  image: `${defaultConfig.siteUrl}/assets/fawasam_portrait.png`,
   description: defaultConfig.description,
   jobTitle: "Software Architect",
   sameAs: [
@@ -416,9 +416,9 @@ export const generateMetadata = async (
     robots: finalRobots,
     icons: {
       icon: [
-        { url: "/favicon.ico" },
+        { url: "/icon.jpg", type: "image/jpeg" },
       ],
-      apple: [{ url: "/favicon.ico" }],
+      apple: [{ url: "/icon.jpg", type: "image/jpeg" }],
     },
     manifest: "/site.webmanifest",
     verification: {

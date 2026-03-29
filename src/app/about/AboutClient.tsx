@@ -75,7 +75,7 @@ export default function AboutPage() {
                <div className="flex flex-col md:flex-row gap-12 items-start mt-8">
                   <div className="relative w-full md:w-[400px] aspect-[4/5] border border-grid-line p-2 group overflow-hidden">
                      <Image 
-                        src="/assets/fawasam_portrait.jpg" 
+                        src="/assets/fawasam_portrait.png" 
                         alt="Fawasam Portrait" 
                         fill
                         className="object-cover grayscale contrast-110 group-hover:grayscale-0 transition-all duration-700"

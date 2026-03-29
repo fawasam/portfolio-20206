@@ -1,0 +1,21 @@
+{
+  "name": "fawasam — Design & Systems // Software Architect",
+  "short_name": "fawasam",
+  "description": "Portfolio of fawasam. Architecting high-concurrency systems, premium digital experiences, and visionary technical infrastructure.",
+  "icons": [
+    {
+      "src": "/icon.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "/icon.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ],
+  "theme_color": "#050505",
+  "background_color": "#050505",
+  "display": "standalone",
+  "start_url": "/"
+}

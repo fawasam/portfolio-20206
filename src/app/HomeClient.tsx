@@ -222,7 +222,7 @@ export default function Home() {
             translateY: useTransform(smoothScroll, [0, 1], [0, -100]),
             opacity: useTransform(scrollYProgress, [0, 0.3], [1, 0])
           }}
-          className="absolute z-10 hidden xl:flex flex-col gap-4"
+          className="absolute z-10 hidden lg:flex flex-col gap-4"
         >
           <div className="relative w-full h-full border border-grid-line p-2 bg-background/50 backdrop-blur-md group hover:border-accent transition-all duration-700">
             <div className="absolute top-0 right-0 p-4 mix-blend-difference z-10 opacity-60 group-hover:opacity-100 transition-opacity">
@@ -230,7 +230,7 @@ export default function Home() {
             </div>
             <div className="w-full h-full overflow-hidden relative">
               <Image 
-                src="/assets/fawasam_portrait.jpg" 
+                src="/assets/fawasam_portrait.png" 
                 alt="Fawasam Portrait" 
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -286,6 +286,29 @@ export default function Home() {
           
           <div className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-24 items-start md:mt-12">
             <div className="md:col-span-12 lg:col-span-7 flex flex-col gap-10">
+              {/* Responsive Portrait (Visible only on Sm/Md/Lg breakpoint, hidden on Xl+) */}
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="lg:hidden w-full max-w-[400px] aspect-[4/5] border border-grid-line p-2 mb-8 relative group"
+              >
+                <div className="w-full h-full overflow-hidden relative">
+                  <Image 
+                    src="/assets/fawasam_portrait.png" 
+                    alt="Fawasam Portrait" 
+                    fill
+                    sizes="(max-width: 768px) 100vw, 400px"
+                    className="object-cover grayscale contrast-110 scale-x-[-1] group-hover:scale-[-1.05] transition-transform duration-1000"
+                  />
+                  <div className="absolute top-0 right-0 p-4 mix-blend-difference z-10 opacity-60">
+                    <span className="technical-label !text-[8px] text-white tracking-[0.4em]">LIVE_FEED_01</span>
+                  </div>
+                </div>
+                {/* Tactical Corners */}
+                <div className="absolute -top-1 -right-1 w-2 h-2 border-t border-r border-accent" />
+                <div className="absolute -bottom-1 -left-1 w-2 h-2 border-b border-l border-accent" />
+              </motion.div>
+
               <p className="text-2xl md:text-5xl leading-[1.1] font-medium tracking-tight max-w-[50rem]">
                 I build systems that shape how humans and technology interact.
               </p>
