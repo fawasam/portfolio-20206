@@ -1,12 +1,13 @@
 "use client";
 
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion, useScroll, useSpring } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 
 // Mock Project Data (This would ideally be fetched from a manifest file)
+// ... (trimmed for brevity)
 const PROJECTS_DATA: { [key: string]: any } = {
   "PRJ_001": {
     id: "PRJ_001",
@@ -247,8 +248,6 @@ export default function ProjectDetail() {
   
   const [isDark, setIsDark] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: containerRef });
-  const smoothScroll = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
 
   useEffect(() => {
     const root = globalThis.document?.documentElement;
@@ -272,21 +271,21 @@ export default function ProjectDetail() {
       </header>
 
       {/* Project Schematic Layout */}
-      <section className="pt-40 px-8 md:px-24 pb-32">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 md:gap-24">
+      <section className="pt-32 md:pt-40 px-6 md:px-24 pb-24 md:pb-32">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-24">
           
           {/* Metadata Sidebar (Schematic Style) */}
           <motion.aside 
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="lg:col-span-3 space-y-12"
+            className="lg:col-span-3 space-y-8 md:space-y-12"
           >
-            <div className="flex flex-col gap-8">
+            <div className="flex flex-col gap-6 md:gap-8">
                <div className="technical-label flex items-center gap-3">
                   <span className="symbol">✦</span>
                   <span>PROJECT_METADATA_EXTRACT</span>
                </div>
-               <div className="space-y-6 border-l border-grid-line pl-6">
+               <div className="space-y-4 md:space-y-6 border-l border-grid-line pl-6">
                   <div>
                     <span className="technical-label opacity-40 text-[8px] block mb-2">IDENTIFIER</span>
                     <span className="font-mono text-sm font-black">{project.id}</span>
@@ -309,31 +308,31 @@ export default function ProjectDetail() {
                </p>
             </div>
 
-            <div className="space-y-12 pt-12 border-t border-grid-line">
+            <div className="space-y-8 md:space-y-12 pt-8 md:pt-12 border-t border-grid-line">
                <span className="technical-label opacity-40 text-[8px] block mb-2">SYSTEM_IMPACT_METRICS</span>
                {project.impact.map((m: any) => (
                  <div key={m.label} className="group">
                     <span className="technical-label !text-[8px] opacity-25 group-hover:opacity-100 transition-opacity">{m.label}</span>
-                    <div className="text-xl font-black tracking-tighter uppercase mt-1">[{m.val}]</div>
-                    <div className="w-full h-[1px] bg-grid-line mt-4 group-hover:bg-accent transition-all duration-500" />
+                    <div className="text-lg md:text-xl font-black tracking-tighter uppercase mt-1">[{m.val}]</div>
+                    <div className="w-full h-[1px] bg-grid-line mt-3 md:mt-4 group-hover:bg-accent transition-all duration-500" />
                  </div>
                ))}
             </div>
           </motion.aside>
 
           {/* Core Content Analysis */}
-          <div className="lg:col-span-9 flex flex-col gap-24">
+          <div className="lg:col-span-9 flex flex-col gap-16 md:gap-24">
              <motion.div 
                initial={{ opacity: 0, y: 30 }}
                animate={{ opacity: 1, y: 0 }}
                transition={{ delay: 0.2 }}
-               className="space-y-8"
+               className="space-y-6 md:space-y-8"
              >
-                <h1 className="text-7xl md:text-[10vw] font-black tracking-tighter leading-[0.85] uppercase">
+                <h1 className="text-4xl sm:text-6xl md:text-[10vw] font-black tracking-tighter leading-[0.85] uppercase">
                    {project.title.split('_').join(', ')}
                 </h1>
                 <div className="max-w-3xl">
-                   <p className="text-2xl md:text-4xl font-light leading-tight tracking-tight">
+                   <p className="text-xl md:text-4xl font-light leading-tight tracking-tight">
                      {project.concepts.philosophy}
                    </p>
                 </div>
@@ -342,10 +341,10 @@ export default function ProjectDetail() {
              {/* Large Schematic Visual */}
              <motion.div 
                 style={{ 
-                   height: "70vh",
-                   translateY: useTransform(smoothScroll, [0, 1], [0, 50]),
+                   height: "auto",
+                   aspectRatio: "16/9"
                 }}
-                className="relative w-full border border-grid-line overflow-hidden group"
+                className="relative lg:h-[70vh] w-full border border-grid-line overflow-hidden group"
              >
                 <Image 
                   src={project.images[0]} 
@@ -353,34 +352,34 @@ export default function ProjectDetail() {
                   fill
                   className="object-cover grayscale contrast-125 opacity-40 group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
                 />
-                <div className="absolute top-0 right-0 p-8 technical-label mix-blend-difference flex flex-col gap-2 opacity-60">
+                <div className="absolute top-0 right-0 p-4 md:p-8 technical-label mix-blend-difference flex flex-col gap-2 opacity-60">
                    <span>PRIMARY_INTERFACE_NODES</span>
-                   <span className="handwriting text-accent">// Operational Study 01</span>
+                   <span className="handwriting text-accent text-xs md:text-base">{"// Operational Study 01"}</span>
                 </div>
              </motion.div>
 
              {/* Technical Node Analysis */}
-             <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-               <div className="space-y-12">
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+               <div className="space-y-8 md:space-y-12">
                   <div className="technical-label">01 // TECHNICAL_SPECIFICATIONS</div>
-                  <div className="space-y-10 border-l border-accent pl-8">
+                  <div className="space-y-8 md:space-y-10 border-l border-accent pl-6 md:pl-8">
                      {project.nodes.map((node: any, i: number) => (
-                       <div key={node.name} className="space-y-3">
+                       <div key={node.name} className="space-y-2 md:space-y-3">
                           <span className="text-[10px] font-mono font-bold opacity-30 tracking-[0.4em]">NODE_{i+1}</span>
-                          <h4 className="text-xl font-black uppercase tracking-tight">{node.name}</h4>
+                          <h4 className="text-lg md:text-xl font-black uppercase tracking-tight">{node.name}</h4>
                           <p className="opacity-50 text-sm leading-relaxed max-w-md">{node.desc}</p>
                        </div>
                      ))}
                   </div>
                </div>
-               <div className="space-y-12">
+               <div className="space-y-8 md:space-y-12">
                   <div className="technical-label">02 // CONCEPTUAL_BREAKDOWN</div>
-                  <p className="text-xl md:text-2xl font-medium leading-relaxed opacity-80">
+                  <p className="text-lg md:text-2xl font-medium leading-relaxed opacity-80">
                     {project.concepts.breakdown}
                   </p>
-                  <div className="pt-8 flex flex-col gap-6">
+                  <div className="pt-4 md:pt-8 flex flex-col gap-4 md:gap-6">
                      <span className="technical-label !text-[8px] opacity-25 uppercase">Logistical_Mesh_Visualization</span>
-                     <div className="grid grid-cols-5 gap-2 h-20">
+                     <div className="grid grid-cols-5 gap-2 h-16 md:h-20">
                         {[1,2,3,4,5,6,7,8,9,10].map(i => (
                           <motion.div 
                             key={i} 
@@ -395,8 +394,8 @@ export default function ProjectDetail() {
              </div>
 
              {/* Final Action */}
-             <div className="pt-24 border-t border-grid-line flex flex-col md:flex-row justify-between items-center gap-12">
-                <Link href="/" className="flex items-center gap-6 group">
+             <div className="pt-16 md:pt-24 border-t border-grid-line flex flex-col md:flex-row justify-between items-center gap-8 md:gap-12">
+                <Link href="/projects" className="flex items-center gap-6 group">
                    <span className="symbol text-accent group-hover:-translate-x-2 transition-transform duration-300">←</span>
                    <span className="font-black text-xs uppercase tracking-[0.4em]">Return_to_Systems</span>
                 </Link>

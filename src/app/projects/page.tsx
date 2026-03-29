@@ -113,59 +113,59 @@ export default function ProjectsListing() {
     <main className="min-h-screen relative font-sans transition-colors duration-700 bg-background text-foreground" ref={containerRef}>
       
       {/* Header */}
-      <header className="fixed top-0 left-0 w-full p-8 md:p-12 z-50 flex justify-between items-baseline mix-blend-difference text-white">
-        <Link href="/" className="font-black tracking-tighter text-2xl uppercase leading-none">fawasam</Link>
+      <header className="fixed top-0 left-0 w-full p-6 md:p-12 z-50 flex justify-between items-baseline mix-blend-difference text-white">
+        <Link href="/" className="font-black tracking-tighter text-xl md:text-2xl uppercase leading-none">fawasam</Link>
         <button 
           onClick={() => setIsDark(!isDark)} 
-          className="text-[10px] uppercase tracking-[0.3em] font-bold border-b-2 border-white pb-1"
+          className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] font-bold border-b-2 border-white pb-1"
         >
           {isDark ? 'LIGHT' : 'DARK'}
         </button>
       </header>
 
       {/* Projects Title Branding */}
-      <section className="pt-48 px-8 md:px-24">
-         <div className="flex flex-col gap-6 max-w-4xl">
+      <section className="pt-28 md:pt-48 px-6 md:px-24">
+         <div className="flex flex-col gap-4 md:gap-6 max-w-4xl">
             <div className="technical-label flex items-center gap-4">
                <span className="symbol animate-pulse text-accent">✦</span>
                <span>SYSTEM_ARCHIVE_MANIFEST_v0.1</span>
             </div>
-            <h1 className="text-8xl md:text-[14vw] font-black tracking-tighter uppercase leading-[0.8] mb-12">
+            <h1 className="text-4xl sm:text-7xl md:text-[14vw] font-black tracking-tighter uppercase leading-[0.8] mb-6 md:mb-12">
                Systems.<br /><span className="text-accent">Archive.</span>
             </h1>
          </div>
       </section>
 
       {/* Projects Grid/List Layout */}
-      <section className="px-8 md:px-24 pb-48 grid grid-cols-1 gap-1 border-t border-grid-line mt-12">
+      <section className="px-6 md:px-24 pb-24 md:pb-48 grid grid-cols-1 gap-1 border-t border-grid-line mt-6 md:mt-12">
          {PROJECTS.map((proj) => (
-            <Link key={proj.id} href={`/projects/${proj.id}`} className="group border-b border-grid-line">
+            <Link key={proj.id} href={`/projects/${proj.id}`} className="group border-b border-grid-line block">
                <motion.div 
                  whileHover={{ x: 20 }}
-                 className="grid grid-cols-1 lg:grid-cols-12 gap-12 py-20 items-center transition-all duration-700"
+                 className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-12 py-10 md:py-20 items-center transition-all duration-700 relative"
                >
                   <div className="lg:col-span-1">
-                     <span className="font-mono text-4xl opacity-10 font-bold group-hover:opacity-100 group-hover:text-accent transition-all duration-700">
+                     <span className="font-mono text-2xl md:text-4xl opacity-10 font-bold group-hover:opacity-100 group-hover:text-accent transition-all duration-700">
                        {proj.num}
                      </span>
                   </div>
                   
-                  <div className="lg:col-span-5 space-y-4">
-                     <div className="technical-label opacity-40 group-hover:opacity-100 transition-opacity">
+                  <div className="lg:col-span-5 space-y-2 md:space-y-4">
+                     <div className="technical-label !text-[8px] md:!text-[10px] opacity-40 group-hover:opacity-100 transition-opacity">
                        {proj.category} // {proj.id}
                      </div>
-                     <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none group-hover:translate-x-4 transition-transform duration-700">
+                     <h2 className="text-3xl sm:text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none group-hover:translate-x-4 transition-transform duration-700 break-words max-w-full">
                         {proj.title}
                      </h2>
                   </div>
 
-                  <div className="lg:col-span-4 space-y-4">
-                     <p className="opacity-40 text-lg leading-tight uppercase font-medium max-w-sm group-hover:opacity-80 transition-opacity">
+                  <div className="lg:col-span-4 space-y-3 md:space-y-4">
+                     <p className="opacity-40 text-sm md:text-lg leading-tight uppercase font-medium max-w-sm group-hover:opacity-80 transition-opacity">
                         {proj.desc}
                      </p>
-                     <div className="flex flex-wrap gap-2 pt-4">
+                     <div className="flex flex-wrap gap-2 pt-1 md:pt-4">
                         {proj.tags.map(tag => (
-                          <span key={tag} className="text-[10px] font-mono border border-grid-line px-3 py-1 opacity-40 hover:border-accent hover:opacity-100 transition-all">
+                          <span key={tag} className="text-[9px] md:text-[10px] font-mono border border-grid-line px-3 py-1 opacity-40 hover:border-accent hover:opacity-100 transition-all">
                              {tag}
                           </span>
                         ))}
@@ -182,8 +182,8 @@ export default function ProjectsListing() {
                   </div>
 
                   {/* Corner Visual Detail */}
-                  <div className="absolute right-0 top-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                     <span className="symbol text-accent text-3xl">→</span>
+                  <div className="absolute right-0 top-1/2 -translate-y-1/2 lg:top-0 lg:translate-y-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                     <span className="symbol text-accent text-2xl md:text-3xl">→</span>
                   </div>
                </motion.div>
             </Link>
@@ -191,7 +191,7 @@ export default function ProjectsListing() {
       </section>
 
       {/* Final Tactical Note */}
-      <footer className="px-8 md:px-24 py-12 flex justify-between border-t border-grid-line mt-24">
+      <footer className="px-6 md:px-24 py-12 flex justify-between border-t border-grid-line mt-12 md:mt-24">
          <div className="technical-label opacity-30 !text-[8px]">
             DOCUMENTATION_ID: ARCHIVE_INDEX_00
          </div>
