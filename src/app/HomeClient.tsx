@@ -126,7 +126,7 @@ const HERO_CONFIGS = [
     keyDetail: "LIVE_FEED_01"
   },
   {
-    line1: "ARCHITECTING",
+    line1: "ARCHITECT",
     line2: "DIGITAL",
     highlight: "RESILIENCE.",
     subHeadline: "Engineering high-concurrency systems and autonomous infrastructures that turn complex logic into seamless human experiences.",
@@ -136,7 +136,7 @@ const HERO_CONFIGS = [
   {
     line1: "SYSTEMS",
     line2: "WITH",
-    highlight: "INTELLIGENCE._",
+    highlight: "INTELLIGENCE.",
     subHeadline: "Beyond code—I build agentic architectures and neural meshes that bridge the gap between static data and active intelligence.",
     description: "Integrating state-of-the-art AI solutions to elevate user experiences and drive innovation.",
     keyDetail: "[GEN_AI_ORCHESTRATOR] // [RAG_PROTOCOL_ACTIVE]"
