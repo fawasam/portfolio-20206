@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Code2, Layers, Database, Binary } from "lucide-react";
 
 export default function Home() {
   const [isDark, setIsDark] = useState(false);
@@ -118,7 +119,10 @@ export default function Home() {
                <Link href="/projects">Work</Link>
              </li>
              <li className="hover:opacity-100 cursor-pointer transition-all hover:text-[#ff4d00]">
-               <Link href="/experience">Experience</Link>
+                <Link href="/experience">Experience</Link>
+             </li>
+             <li className="hover:opacity-100 cursor-pointer transition-all hover:text-[#ff4d00]">
+               <Link href="/about">About</Link>
              </li>
              <li className="hover:opacity-100 cursor-pointer transition-all hover:text-[#ff4d00]">Archive</li>
           </ul>
@@ -190,7 +194,8 @@ export default function Home() {
                   {[
                     { label: 'WORK', href: '/projects', id: '01' },
                     { label: 'EXPERIENCE', href: '/experience', id: '02' },
-                    { label: 'ARCHIVE', href: '#', id: '03' }
+                    { label: 'ABOUT', href: '/about', id: '03' },
+                    { label: 'ARCHIVE', href: '#', id: '04' }
                   ].map((item, i) => (
                     <Link key={item.label} href={item.href} onClick={() => setIsMenuOpen(false)}>
                        <motion.div 
@@ -556,6 +561,105 @@ export default function Home() {
             </motion.div>
           </div>
         </section>
+        {/* Technical Capabilities: SYSTEM_STACK */}
+        <section className="px-6 md:px-24 py-32 border-t border-grid-line bg-foreground/[0.02] dark:bg-white/[0.02] relative overflow-hidden">
+          <motion.div 
+             initial={{ opacity: 0 }}
+             whileInView={{ opacity: 1 }}
+             viewport={{ once: true }}
+             className="flex flex-col gap-20"
+          >
+             <div className="flex flex-col gap-6">
+                <div className="technical-label flex items-center gap-4">
+                   <span className="symbol text-accent">✦</span>
+                   <span>CORE_CAPABILITIES_v1.0</span>
+                </div>
+                <h2 className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tighter uppercase leading-[0.9]">
+                   Technical.<br /><span className="text-accent underline decoration-4 underline-offset-8">Arsenal.</span>
+                </h2>
+             </div>
+
+             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                {[
+                  {
+                    category: "LANGUAGES",
+                    icon: "Code2",
+                    skills: ["JavaScript", "Python", "PHP", "SQL", "HTML", "CSS"]
+                  },
+                  {
+                    category: "FRAMEWORKS",
+                    icon: "Layers",
+                    skills: ["React", "Node.js", "Langchain"]
+                  },
+                  {
+                    category: "DATABASES",
+                    icon: "Database",
+                    skills: ["MySQL", "Postgres"]
+                  },
+                  {
+                    category: "TOOLS_DEV",
+                    icon: "Binary",
+                    skills: ["Google Colab", "Matlab", "Microsoft Office"]
+                  }
+                ].map((group, idx) => {
+                  const IconComponent = group.icon === "Code2" ? Code2 : group.icon === "Layers" ? Layers : group.icon === "Database" ? Database : Binary;
+                  return (
+                    <motion.div 
+                      key={idx}
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: idx * 0.1 }}
+                      viewport={{ once: true }}
+                      className="flex flex-col gap-8 p-8 border border-grid-line bg-background/50 backdrop-blur-sm group hover:border-accent transition-all duration-500"
+                    >
+                      <div className="flex justify-between items-start">
+                        <div className="flex flex-col gap-2">
+                          <span className="font-mono text-[10px] opacity-20">0{idx + 1}</span>
+                          <h3 className="technical-label !text-[10px] font-black group-hover:text-accent transition-colors">{group.category}</h3>
+                        </div>
+                        <IconComponent className="w-5 h-5 text-accent opacity-20 group-hover:opacity-100 transition-all duration-500 group-hover:rotate-12" />
+                      </div>
+                      <div className="flex flex-wrap gap-2 mt-4">
+                        {group.skills.map((skill, sidx) => (
+                          <span 
+                            key={sidx} 
+                            className="text-[9px] md:text-[10px] font-bold uppercase tracking-widest border border-grid-line px-2 py-1 group-hover:border-foreground/20 transition-all duration-300"
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    </motion.div>
+                  );
+                })}
+             </div>
+
+             <div className="mt-12 flex items-center gap-6 opacity-10">
+                <div className="h-[1px] flex-1 bg-foreground" />
+                <div className="technical-label !text-[8px]">LOG_LEVEL: SYSTEM_READY</div>
+                <div className="h-[1px] w-24 bg-foreground" />
+             </div>
+          </motion.div>
+        </section>
+
+        {/* Global Footer */}
+        <footer className="px-6 md:px-24 py-16 flex flex-col md:flex-row justify-between items-center border-t border-grid-line gap-12">
+           <div className="flex flex-col gap-4 items-center md:items-start">
+             <span className="font-black tracking-tighter text-3xl uppercase leading-none">fawas</span>
+             <span className="technical-label opacity-30 !text-[8px] tracking-[0.5em]">SYSTEMS ARCHITECT CORE // 2024</span>
+           </div>
+           
+           <div className="flex gap-12">
+             <Link href="/projects" className="technical-label !text-[10px] hover:text-accent transition-colors">Archive</Link>
+             <Link href="/experience" className="technical-label !text-[10px] hover:text-accent transition-colors">Experience</Link>
+             <span className="technical-label !text-[10px] opacity-20">Terms_01</span>
+           </div>
+
+           <div className="technical-label !text-[8px] opacity-30 text-center md:text-right font-mono">
+              TIMESTAMP: {new Date().toISOString()}<br />
+              COORD: 12.9716° N, 77.5946° E
+           </div>
+        </footer>
 
     </main>
   );

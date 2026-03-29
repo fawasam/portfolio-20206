@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { Code2, Layers, Database, Binary, Award, Zap } from "lucide-react";
 
 export default function ExperiencePage() {
   const [isDark, setIsDark] = useState(false);
@@ -70,6 +71,9 @@ export default function ExperiencePage() {
                <Link href="/projects">Work</Link>
              </li>
              <li className="text-[#ff4d00] opacity-100 cursor-default">Experience</li>
+             <li className="hover:opacity-100 cursor-pointer transition-all hover:text-[#ff4d00]">
+               <Link href="/about">About</Link>
+             </li>
              <li className="hover:opacity-100 cursor-pointer transition-all hover:text-[#ff4d00]">Archive</li>
           </ul>
           
@@ -140,7 +144,8 @@ export default function ExperiencePage() {
                   {[
                     { label: 'WORK', href: '/projects', id: '01' },
                     { label: 'EXPERIENCE', href: '/experience', id: '02' },
-                    { label: 'ARCHIVE', href: '#', id: '03' }
+                    { label: 'ABOUT', href: '/about', id: '03' },
+                    { label: 'ARCHIVE', href: '#', id: '04' }
                   ].map((item, i) => (
                     <Link key={item.label} href={item.href} onClick={() => setIsMenuOpen(false)}>
                        <motion.div 
@@ -357,19 +362,149 @@ export default function ExperiencePage() {
                  ))}
               </div>
            </motion.div>
-        </section>
+         </section>
 
-        {/* Final Action / Return */}
-        <footer className="px-6 md:px-24 py-12 flex justify-between items-center border-t border-grid-line mt-24">
-           <Link href="/" className="flex items-center gap-6 group">
-              <span className="symbol text-accent group-hover:-translate-x-2 transition-transform duration-300">←</span>
-              <span className="font-black text-xs uppercase tracking-[0.4em]">Return_to_Systems</span>
-           </Link>
-           <div className="technical-label !text-[8px] opacity-30 text-right">
-              TIMESTAMP: {new Date().toISOString()}<br />
-              LOG_LEVEL: SYSTEM_VERIFIED
-           </div>
-        </footer>
+         {/* Technology Stack: SYSTEM_CAPABILITIES */}
+         <section className="px-6 md:px-24 py-32 border-t border-grid-line bg-foreground/[0.02] dark:bg-white/[0.02] relative overflow-hidden">
+            <motion.div 
+               initial={{ opacity: 0 }}
+               whileInView={{ opacity: 1 }}
+               viewport={{ once: true }}
+               className="flex flex-col gap-20"
+            >
+               <div className="flex flex-col gap-6">
+                  <div className="technical-label flex items-center gap-4">
+                     <span className="symbol text-accent">✦</span>
+                     <span>LOG_TECH_STACK_v1.0</span>
+                  </div>
+                  <h2 className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tighter uppercase leading-[0.9]">
+                     Tech.<br /><span className="text-accent underline decoration-4 underline-offset-8">Stack.</span>
+                  </h2>
+               </div>
+
+               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                  {[
+                    {
+                      category: "LANGUAGES",
+                      icon: "Code2",
+                      skills: ["JavaScript", "Python", "PHP", "SQL", "HTML", "CSS"]
+                    },
+                    {
+                      category: "FRAMEWORKS",
+                      icon: "Layers",
+                      skills: ["React", "Node.js", "Langchain"]
+                    },
+                    {
+                      category: "DATABASES",
+                      icon: "Database",
+                      skills: ["MySQL", "Postgres"]
+                    },
+                    {
+                      category: "TOOLS_DEV",
+                      icon: "Binary",
+                      skills: ["Google Colab", "Matlab", "Microsoft Office"]
+                    }
+                  ].map((group, idx) => {
+                    const IconComponent = group.icon === "Code2" ? Code2 : group.icon === "Layers" ? Layers : group.icon === "Database" ? Database : Binary;
+                    return (
+                      <motion.div 
+                        key={idx}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ delay: idx * 0.1 }}
+                        viewport={{ once: true }}
+                        className="flex flex-col gap-8 group"
+                      >
+                        <div className="flex items-center justify-between border-b border-grid-line pb-4">
+                          <div className="flex items-center gap-4">
+                            <span className="font-mono text-[10px] opacity-20">0{idx + 1}</span>
+                            <h3 className="technical-label !text-[10px] font-black group-hover:text-accent transition-colors">{group.category}</h3>
+                          </div>
+                          <IconComponent className="w-4 h-4 text-accent opacity-20 group-hover:opacity-100 transition-all duration-300 group-hover:rotate-12" />
+                        </div>
+                        <div className="flex flex-wrap gap-2">
+                          {group.skills.map((skill, sidx) => (
+                            <span 
+                              key={sidx} 
+                              className="text-[10px] md:text-xs font-bold uppercase tracking-widest border border-grid-line px-3 py-1.5 hover:bg-accent hover:text-white hover:border-accent transition-all duration-300 cursor-default"
+                            >
+                              {skill}
+                            </span>
+                          ))}
+                        </div>
+                      </motion.div>
+                    );
+                  })}
+               </div>
+
+               <div className="mt-12 flex items-center gap-6 opacity-10">
+                  <div className="h-[1px] flex-1 bg-foreground" />
+                  <div className="technical-label !text-[8px]">END_TRANSMISSION</div>
+                  <div className="h-[1px] w-24 bg-foreground" />
+               </div>
+            </motion.div>
+         </section>
+
+         {/* Certifications: CREDENTIAL_MATRIX */}
+         <section className="px-6 md:px-24 py-32 border-t border-grid-line bg-foreground/5 dark:bg-white/5 relative overflow-hidden">
+            <motion.div 
+               initial={{ opacity: 0 }}
+               whileInView={{ opacity: 1 }}
+               viewport={{ once: true }}
+               className="flex flex-col gap-20"
+            >
+               <div className="flex flex-col gap-6">
+                  <div className="technical-label flex items-center gap-4">
+                     <Award className="w-4 h-4 text-accent" />
+                     <span>CREDENTIAL_VERIFICATION_v1.0</span>
+                  </div>
+                  <h2 className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tighter uppercase leading-[0.9]">
+                     Auth.<br /><span className="text-accent underline decoration-4 underline-offset-8">Certificates.</span>
+                  </h2>
+               </div>
+
+               <div className="grid grid-cols-1 md:grid-cols-3 gap-1px bg-grid-line border border-grid-line">
+                  {[
+                    { title: "Introduction to DevOps", issuer: "Great Learning Platform", id: "CERT_DV_001" },
+                    { title: "Introduction to Artificial Intelligence", issuer: "LinkedIn", id: "CERT_AI_002" },
+                    { title: "Full Stack Development", issuer: "Professional Training", id: "CERT_FS_003" },
+                  ].map((cert, idx) => (
+                     <motion.div 
+                        key={cert.id}
+                        whileHover={{ backgroundColor: 'rgba(255, 77, 0, 0.05)' }}
+                        className="bg-background p-10 flex flex-col gap-8 group transition-all duration-500"
+                     >
+                        <div className="flex justify-between items-start">
+                           <span className="font-mono text-[10px] opacity-20">0{idx + 1}</span>
+                           <div className="w-8 h-8 rounded-full border border-grid-line flex items-center justify-center group-hover:border-accent group-hover:bg-accent transition-all">
+                              <Zap className="w-3 h-3 text-accent group-hover:text-white transition-colors" />
+                           </div>
+                        </div>
+                        <div className="space-y-2">
+                           <h3 className="text-xl font-black uppercase tracking-tighter leading-tight group-hover:text-accent transition-colors">{cert.title}</h3>
+                           <span className="technical-label !text-[9px] opacity-40">{cert.issuer}</span>
+                        </div>
+                        <div className="mt-auto flex justify-between items-center opacity-20 group-hover:opacity-100 transition-all">
+                           <span className="font-mono text-[8px] tracking-widest">{cert.id}</span>
+                           <span className="symbol">✦</span>
+                        </div>
+                     </motion.div>
+                  ))}
+               </div>
+            </motion.div>
+         </section>
+
+         {/* Final Action / Return */}
+         <footer className="px-6 md:px-24 py-12 flex justify-between items-center border-t border-grid-line mt-24">
+            <Link href="/" className="flex items-center gap-6 group">
+               <span className="symbol text-accent group-hover:-translate-x-2 transition-transform duration-300">←</span>
+               <span className="font-black text-xs uppercase tracking-[0.4em]">Return_to_Systems</span>
+            </Link>
+            <div className="technical-label !text-[8px] opacity-30 text-right">
+               TIMESTAMP: {new Date().toISOString()}<br />
+               LOG_LEVEL: SYSTEM_VERIFIED
+            </div>
+         </footer>
 
     </main>
   );

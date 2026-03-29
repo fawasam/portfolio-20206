@@ -288,6 +288,9 @@ export default function ProjectDetail() {
              <li className="hover:opacity-100 cursor-pointer transition-all hover:text-[#ff4d00]">
                <Link href="/experience">Experience</Link>
              </li>
+             <li className="hover:opacity-100 cursor-pointer transition-all hover:text-[#ff4d00]">
+               <Link href="/about">About</Link>
+             </li>
              <li className="hover:opacity-100 cursor-pointer transition-all hover:text-[#ff4d00]">Archive</li>
           </ul>
           
@@ -356,7 +359,8 @@ export default function ProjectDetail() {
                   {[
                     { label: 'WORK', href: '/projects', id: '01' },
                     { label: 'EXPERIENCE', href: '/experience', id: '02' },
-                    { label: 'ARCHIVE', href: '#', id: '03' }
+                    { label: 'ABOUT', href: '/about', id: '03' },
+                    { label: 'ARCHIVE', href: '#', id: '04' }
                   ].map((item, i) => (
                     <Link key={item.label} href={item.href} onClick={() => setIsMenuOpen(false)}>
                        <motion.div 
