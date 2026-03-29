@@ -1,8 +1,7 @@
 "use client";
 
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
-import Image from "next/image";
 import Link from "next/link";
 
 const PROJECTS = [
@@ -114,13 +113,29 @@ export default function ProjectsListing() {
       
       {/* Header */}
       <header className="fixed top-0 left-0 w-full p-6 md:p-12 z-50 flex justify-between items-baseline mix-blend-difference text-white">
-        <Link href="/" className="font-black tracking-tighter text-xl md:text-2xl uppercase leading-none">fawasam</Link>
-        <button 
-          onClick={() => setIsDark(!isDark)} 
-          className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] font-bold border-b-2 border-white pb-1"
-        >
-          {isDark ? 'LIGHT' : 'DARK'}
-        </button>
+        <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-12">
+           <Link href="/" className="font-black tracking-tighter text-xl md:text-2xl uppercase leading-none">fawasam</Link>
+           <div className="flex items-center gap-3">
+              <div className="w-1 h-1 rounded-full bg-[#ff4d00]" />
+              <span className="text-[10px] uppercase tracking-[0.3em] font-bold opacity-70">Systems_Archive</span>
+           </div>
+        </div>
+
+        <nav className="flex items-center gap-10">
+          <ul className="hidden lg:flex items-center gap-16 text-[10px] uppercase tracking-[0.4em] font-medium opacity-60">
+             <li className="text-[#ff4d00] opacity-100 cursor-default">Work</li>
+             <li className="hover:opacity-100 cursor-pointer transition-all hover:text-[#ff4d00]">
+               <Link href="/experience">Experience</Link>
+             </li>
+             <li className="hover:opacity-100 cursor-pointer transition-all hover:text-[#ff4d00]">Archive</li>
+          </ul>
+          <button 
+            onClick={() => setIsDark(!isDark)} 
+            className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] font-bold border-b-2 border-white pb-1"
+          >
+            {isDark ? 'LIGHT' : 'DARK'}
+          </button>
+        </nav>
       </header>
 
       {/* Projects Title Branding */}
@@ -152,7 +167,7 @@ export default function ProjectsListing() {
                   
                   <div className="lg:col-span-5 space-y-2 md:space-y-4">
                      <div className="technical-label !text-[8px] md:!text-[10px] opacity-40 group-hover:opacity-100 transition-opacity">
-                       {proj.category} // {proj.id}
+                       {proj.category} {"//"} {proj.id}
                      </div>
                      <h2 className="text-3xl sm:text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none group-hover:translate-x-4 transition-transform duration-700 break-words max-w-full">
                         {proj.title}

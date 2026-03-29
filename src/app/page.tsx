@@ -106,21 +106,33 @@ export default function Home() {
           </div>
         </div>
 
-        <nav className="flex items-center gap-10">
+        <nav className="flex items-center gap-6 md:gap-10">
           <ul className="hidden lg:flex items-center gap-16 text-[10px] uppercase tracking-[0.4em] font-medium opacity-60">
              <li className="hover:opacity-100 cursor-pointer transition-all hover:text-[#ff4d00]">
                <Link href="/projects">Work</Link>
              </li>
-             <li className="hover:opacity-100 cursor-pointer transition-all hover:text-[#ff4d00]">Philosophy</li>
+             <li className="hover:opacity-100 cursor-pointer transition-all hover:text-[#ff4d00]">
+               <Link href="/experience">Experience</Link>
+             </li>
              <li className="hover:opacity-100 cursor-pointer transition-all hover:text-[#ff4d00]">Archive</li>
           </ul>
-          <button 
-            onClick={() => setIsDark(!isDark)} 
-            className="text-[10px] uppercase tracking-[0.3em] font-bold border-b-2 border-white pb-1 cursor-pointer hover:text-[#ff4d00] hover:border-[#ff4d00] transition-all"
-          >
-            {isDark ? 'LIGHT' : 'DARK'}
-          </button>
+          
+          <div className="flex items-center gap-6">
+            <button 
+              onClick={() => setIsDark(!isDark)} 
+              className="text-[10px] uppercase tracking-[0.3em] font-bold border-b-2 border-white pb-1 cursor-pointer hover:text-[#ff4d00] hover:border-[#ff4d00] transition-all"
+            >
+              {isDark ? 'LIGHT' : 'DARK'}
+            </button>
+          </div>
         </nav>
+
+        {/* Mobile Nav Row */}
+        <div className="absolute top-full left-0 w-full px-6 py-4 flex lg:hidden items-center justify-center gap-8 text-[8px] uppercase tracking-[0.3em] font-bold bg-background/80 backdrop-blur-md border-b border-grid-line mix-blend-normal text-foreground">
+           <Link href="/projects" className="hover:text-[#ff4d00]">Work</Link>
+           <Link href="/experience" className="hover:text-[#ff4d00]">Experience</Link>
+           <Link href="#" className="opacity-30">Archive</Link>
+        </div>
       </header>
 
       {/* Hero Section */}
