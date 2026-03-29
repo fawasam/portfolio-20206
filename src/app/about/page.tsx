@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, Phone, MapPin, Globe, Award, User, Target, Zap } from "lucide-react";
+import { Mail, Phone, MapPin, Award, User, Zap } from "lucide-react";
 
 import { useTheme } from "@/context/ThemeContext";
 
@@ -29,7 +29,7 @@ export default function AboutPage() {
     { label: "EMAIL", value: "fawasam32@gmail.com", icon: Mail, ref: "EP-LINK-01" },
     { label: "PHONE", value: "+91 9645885706", icon: Phone, ref: "EP-LINK-02" },
     { label: "LOCATION", value: "Calicut, India", icon: MapPin, ref: "EP-LINK-03" },
-    { label: "WEBSITE", value: "fawasam.me", icon: Globe, ref: "EP-LINK-04" },
+   //  { label: "WEBSITE", valprue: "fawasam.me", icon: Globe, ref: "EP-LINK-04" },
   ];
 
   const socialLinks = [

@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
+import { ExternalLink } from "lucide-react";
 
 // Mock Project Data (This would ideally be fetched from a manifest file)
 // ... (trimmed for brevity)
@@ -16,6 +17,7 @@ const PROJECTS_DATA: { [key: string]: any } = {
     category: "Logistics_Architecture / Commercial_Web",
     status: "ACTIVE_DEPLOYMENT",
     stack: "NEXT.JS / EXPRESS / MONGODB / SOCKET.IO",
+    url: "https://thelaundryhub.ae",
     nodes: [
       { name: "RECURSIVE_BOOKING_NODE", desc: "Automated hierarchical scheduling for high-concurrency request handling." },
       { name: "SOCKET_DRIVER_MESH", desc: "Real-time bi-directional data flow between driver telemetry and central dispatch." },
@@ -39,6 +41,7 @@ const PROJECTS_DATA: { [key: string]: any } = {
     category: "Financial_Systems / Enterprise_UX / CMS",
     status: "ACTIVE_DEPLOYMENT",
     stack: "NEXT.JS / TYPESCRIPT / STRAPI / DOCKER",
+    url: "https://muthootcap.com",
     nodes: [
       { name: "FINANCIAL_PAYMENT_NODE", desc: "Secure digital settlement pathways for loan EMI and interest instruments." },
       { name: "FD_ORIGINATION_LOGIC", desc: "Automated fixed deposit creation flow with integrated calculation engines." },
@@ -62,6 +65,7 @@ const PROJECTS_DATA: { [key: string]: any } = {
     category: "Visual_Commerce / Cloud_Arch / SEO",
     status: "ACTIVE_DEPLOYMENT",
     stack: "NEXT.JS / STRAPI / AWS",
+    url: "https://dewtonindia.com",
     nodes: [
       { name: "SEO_SYSTEM_CORE", desc: "Granular metadata and semantically optimized architecture for high-competition regional indexing." },
       { name: "AWS_INFRA_MESH", desc: "Scaled orchestration across AWS EC2 and Amplify nodes with automated CI/CD." },
@@ -76,7 +80,7 @@ const PROJECTS_DATA: { [key: string]: any } = {
        { label: "INFRA_STABILITY", val: "AWS_AMPLIFY_CI/CD" },
        { label: "USER_INTERFACE", val: "PREMIUM_COMMERCE" }
     ],
-    images: ["/assets/dewton_main.png", "/assets/hero.png"]
+    images: ["/assets/dewton.webp", "/assets/hero.png"]
   },
   "PRJ_004": {
     id: "PRJ_004",
@@ -85,6 +89,7 @@ const PROJECTS_DATA: { [key: string]: any } = {
     category: "Financial_Systems / NBFC / AWS",
     status: "ACTIVE_DEPLOYMENT",
     stack: "NEXT.JS / TYPESCRIPT / STRAPI / EC2",
+    url: "https://southindiancredits.com",
     nodes: [
       { name: "DIGITAL_HERITAGE_NODE", desc: "Transforming decades of regulatory trust into a high-performance modern web framework." },
       { name: "GOLD_CREDIT_MESH", desc: "Streamlined digital pathways for secure gold loan and microfinance instruments." },
@@ -99,7 +104,7 @@ const PROJECTS_DATA: { [key: string]: any } = {
        { label: "REGIONAL_ indexing", val: "SEO_DOMINANCE_DXB" },
        { label: "USER_ACCESSIBILITY", val: "NBFC_CREDIT_HUB" }
     ],
-    images: ["/assets/sicl_main.png", "/assets/hero.png"]
+    images: ["/assets/south-indian.webp", "/assets/hero.png"]
   },
   "PRJ_005": {
     id: "PRJ_005",
@@ -108,6 +113,7 @@ const PROJECTS_DATA: { [key: string]: any } = {
     category: "IT_Infra / Spatial_Architecture / AWS",
     status: "ACTIVE_DEPLOYMENT",
     stack: "NEXT.JS / TYPESCRIPT / STRAPI / EC2",
+    url: "https://lulutechpark.com",
     nodes: [
       { name: "INFRA_MANIFEST_NODE", desc: "Digital representation of 3.5m sq. ft. of world-class office and robotic parking space." },
       { name: "SPATIAL_ORCHESTRATOR", desc: "Dynamic leasable area management and facility visualization engine." },
@@ -122,7 +128,7 @@ const PROJECTS_DATA: { [key: string]: any } = {
        { label: "SPATIAL_METRICS", val: "3.5M_SQFT_INDEXED" },
        { label: "ENTERPRISE_READY", val: "MNC_TENANT_PORTAL" }
     ],
-    images: ["/assets/lulu_tech_main.png", "/assets/hero.png"]
+    images: ["/assets/lulu-techpark.png", "/assets/hero.png"]
   },
   "PRJ_006": {
     id: "PRJ_006",
@@ -131,6 +137,7 @@ const PROJECTS_DATA: { [key: string]: any } = {
     category: "Creative_Logic / Haptic_Web / WebGL",
     status: "ACTIVE_DEPLOYMENT",
     stack: "NEXT.JS / THREE.JS / GSAP / STRAPI",
+    url: "https://www.u-sphere.in",
     nodes: [
       { name: "HAPTIC_INTERFACE_NODE", desc: "Immersive motion-driven UX focusing on high-fidelity user feedback and storytelling." },
       { name: "GL_RENDER_ENGINE", desc: "Customized WebGL mesh within the Next.js workflow for zero-latency 3D visualizations." },
@@ -145,7 +152,7 @@ const PROJECTS_DATA: { [key: string]: any } = {
        { label: "SEARCH_OPTIMIZATION", val: "ULCCS_FUTURE_SEO" },
        { label: "SESSION_DEPTH", val: "IMMERSIVE_ENGAGEMENT" }
     ],
-    images: ["/assets/u_sphere_main.png", "/assets/hero.png"]
+    images: ["/assets/u-sphere.jpg", "/assets/hero.png"]
   },
   "PRJ_007": {
     id: "PRJ_007",
@@ -154,6 +161,7 @@ const PROJECTS_DATA: { [key: string]: any } = {
     category: "Biotech_UX / Consumer_Science / AWS",
     status: "ACTIVE_DEPLOYMENT",
     stack: "NEXT.JS / TYPESCRIPT / STRAPI / EC2",
+    url: "https://akoreformulations.com",
     nodes: [
       { name: "ANIMATION_PRESENTATION_NODE", desc: "Refined, zero-latency motion reflecting the high-performance lab aesthetic." },
       { name: "SCIENTIFIC_ORCHESTRATOR", desc: "Precise management of topical formulation data within a robust Strapi CMS." },
@@ -168,7 +176,7 @@ const PROJECTS_DATA: { [key: string]: any } = {
        { label: "MOTION_FIDELITY", val: "HIGH_PERFORMANCE_UX" },
        { label: "USER_TRUST", val: "PROFESSIONAL_RELIABILITY" }
     ],
-    images: ["/assets/akore_main.png", "/assets/hero.png"]
+    images: ["/assets/akore-formulations.webp", "/assets/hero.png"]
   },
   "PRJ_008": {
     id: "PRJ_008",
@@ -177,6 +185,7 @@ const PROJECTS_DATA: { [key: string]: any } = {
     category: "Energy_Logistics / Enterprise_Web / AWS",
     status: "ACTIVE_DEPLOYMENT",
     stack: "NEXT.JS / TYPESCRIPT / STRAPI / EC2",
+    url: "https://morganfuels.com",
     nodes: [
       { name: "TRANSACTION_ORCHESTRATION_NODE", desc: "Complex bulk fuel processing and multi-national fuel card management logic." },
       { name: "LOGISTICAL_CONTENT_RELAY", desc: "Real-time management of multi-regional energy prices and fleet data sets." },
@@ -191,7 +200,7 @@ const PROJECTS_DATA: { [key: string]: any } = {
        { label: "COMMERCE_SPEED", val: "SYNCHRONIZED_ORDERING" },
        { label: "SEARCH_RANKING", val: "TOP_3_DOMINANCE" }
     ],
-    images: ["/assets/morgan_fuels_main.png", "/assets/hero.png"]
+    images: ["/assets/morgan-fuels.webp", "/assets/hero.png"]
   },
   "PRJ_009": {
     id: "PRJ_009",
@@ -200,6 +209,7 @@ const PROJECTS_DATA: { [key: string]: any } = {
     category: "Communication / Real-time / Backend",
     status: "ACTIVE_DEPLOYMENT",
     stack: "NODE.JS / AGORA / REDIS / ECS",
+    url: "https://talkiyo.in",
     nodes: [
       { name: "AGORA_SYNC_MESH", desc: "Real-time audio and video orchestration using Agora SDK, synchronized with a distributed socket mesh." },
       { name: "FINANCIAL_BRIDGE_4X", desc: "Industrial payment relay integrating four distinct gateways for multi-national transaction scalability." },
@@ -223,6 +233,7 @@ const PROJECTS_DATA: { [key: string]: any } = {
     category: "Wellness / Real-time_Care / Backend",
     status: "ACTIVE_DEPLOYMENT",
     stack: "NODE.JS / AGORA / REDIS / ECS",
+    url: "https://arikil.org",
     nodes: [
       { name: "SYNCHRONOUS_CARE_NODE", desc: "Private 1-on-1 voice and chat communication system using Agora and Socket.io for mental health care." },
       { name: "CONFIDENTIAL_DATA_MESH", desc: "Secure distributed session architecture on Amazon ECS, focusing on HIPAA-compliant confidentiality." },
@@ -238,6 +249,54 @@ const PROJECTS_DATA: { [key: string]: any } = {
        { label: "SYSTEM_SCALE", val: "50K_CARE_NODES" }
     ],
     images: ["/assets/arikil_main.png", "/assets/hero.png"]
+  },
+  "PRJ_011": {
+    id: "PRJ_011",
+    title: "REDIS_GUI",
+    year: "2024",
+    category: "Personal_Project / Dev_Tools / Vercel",
+    status: "VERSION_1.0_LIVE",
+    stack: "NEXT.JS / TYPESCRIPT / VERCEL / CI/CD",
+    url: "https://redis-gui.vercel.app/",
+    nodes: [
+      { name: "VISUAL_ORCHESTRATOR", desc: "Intuitive graphical interface for real-time Redis key-value interaction and data management." },
+      { name: "VERCEL_EDGE_SYNC", desc: "Global distribution using Vercel's edge network for zero-latency developer tooling." },
+      { name: "SEO_ARCH_CORE", desc: "Deeply optimized metadata and semantic structure for high-fidelity search discoverability." }
+    ],
+    concepts: {
+      philosophy: "Simplifying complex backend data states into human-readable visual logic, prioritizing speed and developer experience.",
+      breakdown: "A cloud-native developer tool built on Next.js, featuring automated CI/CD pipelines and high-precision SEO orchestration."
+    },
+    impact: [
+       { label: "TOOL_ACCESSIBILITY", val: "USER_CENTRIC_UX" },
+       { label: "DEPLOYMENT_STRATEGY", val: "VERCEL_CI/CD_MESH" },
+       { label: "SEO_SCORE", val: "FULL_INDEX_OPTIMIZED" }
+    ],
+    images: ["/assets/hero.png", "/assets/hero.png"]
+  },
+  "PRJ_012": {
+    id: "PRJ_012",
+    title: "MARKAZ_KNOWLEDGE_CITY",
+    year: "2024",
+    category: "Spatial_Architecture / Education_Hub / Enterprise",
+    status: "ACTIVE_DEPLOYMENT",
+    stack: "NEXT.JS / PHP / MYSQL",
+    url: "https://www.markazknowledgecity.com/",
+    nodes: [
+      { name: "SPATIAL_MANIFEST_NODE", desc: "Digital representation of 125 acres of state-of-the-art educational and residential infrastructure." },
+      { name: "HYBRID_RELAY_CORE", desc: "Seamless integration between Next.js high-performance frontend and a robust PHP/MySQL backend." },
+      { name: "EDUCATION_SEO_CLUSTER", desc: "Industrial-grade search optimization for India's premier multi-disciplinary city." }
+    ],
+    concepts: {
+      philosophy: "Visualizing human-centric spatial logic at scale—architecting a digital manifest that reflects the physical grandeur of a modern knowledge city.",
+      breakdown: "A comprehensive digital infrastructure designed to showcase world-class facilities and seamless connectivity across a massive landscape."
+    },
+    impact: [
+       { label: "SPATIAL_INDEXING", val: "125_ACRE_MANIFEST" },
+       { label: "SYSTEM_RELIABILITY", val: "HYBRID_CORE_STABLE" },
+       { label: "SEARCH_DOMINANCE", val: "PREMIER_KNOWLEDGE_HUB" }
+    ],
+    images: ["/assets/hero.png", "/assets/hero.png"]
   }
 };
 
@@ -427,6 +486,20 @@ export default function ProjectDetail() {
                </p>
             </div>
 
+             {project.url && (
+               <div className="pb-8">
+                  <a 
+                    href={project.url} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between w-full px-6 py-4 border-2 border-accent text-accent font-black text-[10px] uppercase tracking-widest hover:bg-accent hover:text-white transition-all duration-300 group"
+                  >
+                    <span>VISIT_LIVE_SYSTEM</span>
+                    <ExternalLink className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                  </a>
+               </div>
+             )}
+
             <div className="space-y-8 md:space-y-12 pt-8 md:pt-12 border-t border-grid-line">
                <span className="technical-label opacity-40 text-[8px] block mb-2">SYSTEM_IMPACT_METRICS</span>
                {project.impact.map((m: any) => (
@@ -469,6 +542,7 @@ export default function ProjectDetail() {
                   src={project.images[0]} 
                   alt={project.title} 
                   fill
+                  sizes="(max-width: 768px) 100vw, 80vw"
                   className="object-cover grayscale contrast-125 opacity-40 group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
                 />
                 <div className="absolute top-0 right-0 p-4 md:p-8 technical-label mix-blend-difference flex flex-col gap-2 opacity-60">

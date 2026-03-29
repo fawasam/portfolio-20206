@@ -94,6 +94,24 @@ const PROJECTS = [
     stack: "NODE.JS / AGORA / AWS_ECS",
     tags: ["CHAT", "REDIS", "VOICE", "REAL_TIME"],
     desc: "Confidential real-time wellness and care communication mesh."
+  },
+  {
+    id: "PRJ_011",
+    num: "11",
+    title: "REDIS_GUI",
+    category: "PERSONAL_PROJECT",
+    stack: "NEXT.JS / TYPESCRIPT / VERCEL",
+    tags: ["REDIS", "GUI", "VERCEL", "SEO"],
+    desc: "A high-performance visual interface for real-time Redis data orchestration."
+  },
+  {
+    id: "PRJ_012",
+    num: "12",
+    title: "MARKAZ_KNOWLEDGE_CITY",
+    category: "SPATIAL_ARCHITECTURE",
+    stack: "NEXT.JS / PHP / MYSQL",
+    tags: ["CALICUT", "EDUCATION", "SPATIAL", "SEO"],
+    desc: "A high-fidelity digital manifest for India's premier 125-acre knowledge ecosystem."
   }
 ];
 
@@ -275,7 +293,7 @@ export default function ProjectsListing() {
                      <div className="technical-label !text-[8px] md:!text-[10px] opacity-40 group-hover:opacity-100 transition-opacity">
                        {proj.category} {"//"} {proj.id}
                      </div>
-                     <h2 className="text-3xl sm:text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none group-hover:translate-x-4 transition-transform duration-700 break-words max-w-full">
+                     <h2 className="text-2xl sm:text-3xl md:text-5xl font-black uppercase tracking-tighter leading-none group-hover:translate-x-4 transition-transform duration-700 truncate max-w-full">
                         {proj.title}
                      </h2>
                   </div>

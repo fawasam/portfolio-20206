@@ -352,6 +352,7 @@ export default function Home() {
                 src="/assets/fawasam_portrait.jpg" 
                 alt="Fawasam Portrait" 
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="object-cover grayscale contrast-110 scale-x-[-1] group-hover:scale-[-1.05] transition-transform duration-1000"
                 priority
               />
@@ -523,6 +524,7 @@ export default function Home() {
                    src="/assets/laundry_hub_hero.jpg" 
                    alt="The Laundry Hub - Logistics Platform" 
                    fill
+                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 60vw"
                    className="object-cover grayscale contrast-125 opacity-40 group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
                    onError={(e) => { e.currentTarget.style.display = 'none'; }}
                  />
@@ -595,6 +597,7 @@ export default function Home() {
                    src="/assets/muthoot_hero.jpg" 
                    alt="Muthoot Capital - Financial Platform" 
                    fill
+                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 60vw"
                    className="object-cover grayscale contrast-125 opacity-40 group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
                    onError={(e) => { e.currentTarget.style.display = 'none'; }}
                  />
@@ -704,7 +707,7 @@ export default function Home() {
                   {
                     category: "CI/CD & INFRA",
                     icon: "GitBranch",
-                    skills: ["Docker", "Jenkins", "Git", "GitHub Actions", "ArgoCD", "Grafana", "Prometheus", "Terraform"]
+                    skills: ["Docker", "Jenkins", "Git", "GitHub Actions", "ArgoCD", "Grafana", "Prometheus", "Terraform", "Kafka"]
                   }
                 ].map((group, idx) => {
                   const IconComponent = group.icon === "Code2" ? Code2 : group.icon === "Layers" ? Layers : group.icon === "Database" ? Database : group.icon === "Cloud" ? Cloud : group.icon === "GitBranch" ? GitBranch : Binary;

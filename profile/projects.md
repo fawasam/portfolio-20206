@@ -375,4 +375,69 @@
 
 ---
 
-*End of PRJ_010.*
+## [ REDIS_GUI ] 
+**ID:** `PRJ_011`  
+**YEAR:** 2024  
+**CATEGORY:** [ Personal_Project / Dev_Tools / Vercel ]  
+**STATUS:** [ VERSION_1.0_LIVE ]
+
+### 01. THE_CONCEPTUAL_GRID
+> Redis GUI is a high-performance visual interface designed for real-time Redis data orchestration. The project's logic centered on "Data Transparency"—simplifying complex backend states into human-readable visual logic. My objective was to architect a tool that prioritizes speed, developer experience, and industrial-grade SEO.
+
+### 02. TECHNICAL_ARCHITECTURE
+*Core tool architecture and operational nodes.*
+- **CORE:** [ Next.js / TypeScript ]
+- **CLOUD_INFRA:** [ Vercel ]
+- **AUTOMATION:** [ GitHub Actions / CI/CD ]
+- **STRATEGY:** [ Performance-led SEO & Edge Synchronization ]
+
+**Operational Breakdown:**
+- **VISUAL_ORCHESTRATOR:** Engineered an intuitive interface using Next.js for high-fidelity interaction with Redis key-value stores.
+- **VERCEL_MESH:** Leveraged Vercel's global edge network to ensure zero-latency access for developer tooling.
+- **SEO_CORE:** Implemented a deeply optimized metadata structure to dominate technical search results for "Redis Graphical Interface."
+
+### 03. VISUAL_SYSTEM
+*Artifacts from the developer interface.*
+1. **[ /assets/hero.png ]** — *Initial visual manifest: Visualizing real-time data states.*
+
+### 04. SYSTEM_IMPACT
+*Operational metrics and qualitative results.*
+- **TOOL_ACCESSIBILITY:** [ High-speed visual data management ]
+- **DEPLOYMENT_RHYTHM:** [ Continuous Vercel-driven delivery ]
+- **SEARCH_PRECISION:** [ Fully indexed for developer-centric keywords ]
+
+---
+
+## [ MARKAZ_KNOWLEDGE_CITY ] 
+**ID:** `PRJ_012`  
+**YEAR:** 2024  
+**CATEGORY:** [ Spatial_Architecture / Education_Hub / Enterprise ]  
+**STATUS:** [ ACTIVE_DEPLOYMENT ]
+
+### 01. THE_CONCEPTUAL_GRID
+> Markaz Knowledge City is a leading 125-acre knowledge ecosystem in Calicut, India. The project's logic centered on "Spatial Visualization"—architecting a digital platform that authentically reflects the scale and visionary architecture of a multi-disciplinary city. My goal was to create a high-fidelity manifest for educational hubs, residential zones, and state-of-the-art facilities.
+
+### 02. TECHNICAL_ARCHITECTURE
+*Core infrastructure architecture and operational nodes.*
+- **CORE:** [ Next.js / PHP ]
+- **DATA_LAYER:** [ MySQL ]
+- **STRATEGY:** [ Hybrid Logic & Industrial SEO ]
+
+**Operational Breakdown:**
+- **SPATIAL_MANIFEST_NODE:** Developed a high-performance visual interface to present a detailed digital overview of 125 acres of infrastructure.
+- **HYBRID_RELAY_CORE:** Engineered the seamless bridge between a Next.js frontend and a reliable PHP/MySQL backend for persistent data management.
+- **EDUCATION_SEO_CLUSTER:** Implemented industrial-grade metadata and semantic structure to dominate relevant educational and residential search categories.
+
+### 03. VISUAL_SYSTEM
+*Artifacts from the knowledge city interface.*
+1. **[ /assets/hero.png ]** — *City Manifest: Visualizing scale and connectivity.*
+
+### 04. SYSTEM_IMPACT
+*Operational metrics and qualitative results.*
+- **SPATIAL_INDEXING:** [ 100% digital coverage of 125-acre infrastructure ]
+- **SYSTEM_RELIABILITY:** [ Zero-latency hybrid architecture deployment ]
+- **SEARCH_DOMINANCE:** [ Top-tier indexing for premier knowledge city search clusters ]
+
+---
+
+*End of PRJ_012.*
