@@ -112,6 +112,42 @@ const PROJECTS = [
     stack: "NEXT.JS / PHP / MYSQL",
     tags: ["CALICUT", "EDUCATION", "SPATIAL", "SEO"],
     desc: "A high-fidelity digital manifest for India's premier 125-acre knowledge ecosystem."
+  },
+  {
+    id: "PRJ_013",
+    num: "13",
+    title: "TRAVZ_CAR_RENTAL",
+    category: "LOGISTICS_WEB",
+    stack: "NEXT.JS / TYPESCRIPT / EC2",
+    tags: ["GCC", "MULTILINGUAL", "RENTAL", "CURRENCY"],
+    desc: "A high-fidelity GCC-wide car rental engine with seamless multi-dimensional currency and language support."
+  },
+  {
+    id: "PRJ_014",
+    num: "14",
+    title: "MY_DEGREE",
+    category: "ACADEMIC_PORTAL",
+    stack: "NEXT.JS / NODE.JS / MONGODB",
+    tags: ["EDUCATION", "PORTAL", "VERCEL", "MERN"],
+    desc: "A streamlined academic management ecosystem for real-time degree tracking and student orchestration."
+  },
+  {
+    id: "PRJ_015",
+    num: "15",
+    title: "KEY2_CONTENT",
+    category: "CREATIVE_AGENCY",
+    stack: "HTML / CSS / JS / PHP",
+    tags: ["BRANDING", "CREATIVE", "JS", "PHP"],
+    desc: "A premium visual branding platform for high-fidelity content production and digital storytelling."
+  },
+  {
+    id: "PRJ_016",
+    num: "16",
+    title: "SHOE_STORE_STALL",
+    category: "COMMERCE_ARCHITECTURE",
+    stack: "REACT / NODE.JS / MONGODB",
+    tags: ["E-COMMERCE", "RETAIL", "MERN", "VERCEL"],
+    desc: "A high-performance e-commerce engine for streamlined retail footwear orchestration and transactional integrity."
   }
 ];
 

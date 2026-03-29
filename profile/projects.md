@@ -440,4 +440,135 @@
 
 ---
 
-*End of PRJ_012.*
+## [ TRAVZ_CAR_RENTAL ] 
+**ID:** `PRJ_013`  
+**YEAR:** 2024  
+**CATEGORY:** [ Logistics_Architecture / Fleet_Management / GCC ]  
+**STATUS:** [ ACTIVE_DEPLOYMENT ]
+
+### 01. THE_CONCEPTUAL_GRID
+> Travz Car Rental is a high-performance rental ecosystem designed for "Regional Mobility." The project's logic centered on adaptive commerce—facilitating seamless car rentals across the GCC with deep support for multiple languages and currencies. My role was to architect a robust, localized infrastructure on AWS EC2 that ensures consistency and performance.
+
+### 02. TECHNICAL_ARCHITECTURE
+*Core logistics architecture and operational nodes.*
+- **CORE:** [ Next.js / TypeScript ]
+- **CLOUD_INFRA:** [ AWS EC2 ]
+- **STABILITY:** [ AWS_MANAGED_INSTANCES ]
+- **STRATEGY:** [ Multi-lingual & Multi-currency Synchronization ]
+
+**Operational Breakdown:**
+- **MULTI_LINGUAL_RELAY:** Engineered an automated localization engine for high-fidelity Arabic and English user transitions.
+- **CURRENCY_ORCHESTRATOR:** Developed a real-time exchange rate node for precise regional rental settlements across GCC currencies.
+- **FLEET_LOGIC_MESH:** Architected a robust vehicle availability mesh to synchronize distributed inventory nodes in real-time.
+
+### 03. VISUAL_SYSTEM
+*Artifacts from the rental commerce interface.*
+1. **[ /assets/hero.png ]** — *Rental Dashboard: Visualizing fleet mobility and regional data.*
+
+### 04. SYSTEM_IMPACT
+*Operational metrics and qualitative results.*
+- **REGIONAL_REACH:** [ Successful GCC-wide deployment ]
+- **COMMERCE_FLEX:** [ Multi-currency and multi-language synchronization ]
+- **USER_ADAPTATION:** [ Enhanced accessibility for diverse regional demographics ]
+
+---
+
+## [ MY_DEGREE ] 
+**ID:** `PRJ_014`  
+**YEAR:** 2024  
+**CATEGORY:** [ Educational_Systems / Academic_Portal ]  
+**STATUS:** [ ACTIVE_DEPLOYMENT ]
+
+### 01. THE_CONCEPTUAL_GRID
+> My Degree is a streamlined academic management ecosystem designed for "Academic Transparency." The project's logic centered on student-centric tracking—simplifying the complexity of degree progress into a high-fidelity visual manifest. My goal was to architect a robust MERN-based portal that ensures data integrity and seamless user navigation.
+
+### 02. TECHNICAL_ARCHITECTURE
+*Core academic architecture and operational nodes.*
+- **CORE:** [ Next.js / Node.js ]
+- **DATA_LAYER:** [ MongoDB ]
+- **STABILITY:** [ Vercel Deployment ]
+- **STRATEGY:** [ Real-time Academic Tracking ]
+
+**Operational Breakdown:**
+- **ACADEMIC_TRACKING_NODE:** Engineered a precise state management system to synchronize student degree progress and credit accumulation.
+- **MERN_RELAY_CORE:** Developed the persistent API and database layer using Node.js and MongoDB for industrial-grade record handling.
+- **STUDENT_USER_MESH:** Architected a premium Next.js interface to provide students with an intuitive and responsive academic dashboard.
+
+### 03. VISUAL_SYSTEM
+*Artifacts from the academic interface.*
+1. **[ /assets/hero.png ]** — *Academic Portal: Visualizing student progress and institutional data.*
+
+### 04. SYSTEM_IMPACT
+*Operational metrics and qualitative results.*
+- **TRACKING_PRECISION:** [ Real-time degree synchronization ]
+- **DATA_INTEGRITY:** [ 100% reliable MERN-based record management ]
+- **USER_ACCESSIBILITY:** [ Simplified academic navigation for graduating students ]
+
+---
+
+## [ KEY2_CONTENT ] 
+**ID:** `PRJ_015`  
+**YEAR:** 2024  
+**CATEGORY:** [ Creative_Agency / Visual_Branding ]  
+**STATUS:** [ ACTIVE_DEPLOYMENT ]
+
+### 01. THE_CONCEPTUAL_GRID
+> Key2 Content is a premium creative agency platform designed for "Visual Storytelling." The project's logic centered on high-fidelity branding—architecting a digital landscape that prioritizes design elegance and content speed. My goal was to leverage a reliable legacy stack (HTML/JS/PHP) to deliver a modern, premium creative experience.
+
+### 02. TECHNICAL_ARCHITECTURE
+*Core agency architecture and operational nodes.*
+- **CORE:** [ HTML / CSS / JS ]
+- **BACKEND:** [ PHP ]
+- **STRATEGY:** [ Premium Branding & Lean UX ]
+
+**Operational Breakdown:**
+- **VISUAL_STORYTELLING_NODE:** Engineered a high-precision interface focused on brand identity and fluid UI transitions.
+- **LEGACY_STACK_MODERN_UX:** Optimized traditional web technologies to ensure industrial-grade reliability and 100% global accessibility.
+- **CONTENT_RELAY_MESH:** Developed a streamlined asset delivery pipeline to handle high-resolution visual and creative media blocks.
+
+### 03. VISUAL_SYSTEM
+*Artifacts from the creative agency interface.*
+1. **[ /assets/hero.png ]** — *Creative Dashboard: Visualizing brand identity and digital storytelling.*
+
+### 04. SYSTEM_IMPACT
+*Operational metrics and qualitative results.*
+- **BRAND_RECOGNITION:** [ High-fidelity visual identity for creative clients ]
+- **SYSTEM_SPEED:** [ Optimized legacy core for maximum accessibility ]
+- **DESIGN_ACCESSIBILITY:** [ 100% responsive global content synchronization ]
+
+---
+
+## [ SHOE_STORE_STALL ] 
+**ID:** `PRJ_016`  
+**YEAR:** 2024  
+**CATEGORY:** [ Commerce_Architecture / Retail_Web ]  
+**STATUS:** [ ACTIVE_DEPLOYMENT ]
+
+### 01. THE_CONCEPTUAL_GRID
+> Shoe Store Stall is a high-performance e-commerce platform designed for "Retail Fluidity." The project's logic centered on transactional integrity—architecting a digital storefront that simplifies the complexity of footwear orchestration into a high-fidelity visual experience. My goal was to build a robust MERN-driven engine with zero-latency ordering and persistent state sync.
+
+### 02. TECHNICAL_ARCHITECTURE
+*Core commerce architecture and operational nodes.*
+- **CORE:** [ React / Node.js ]
+- **DATA_LAYER:** [ MongoDB ]
+- **STABILITY:** [ Vercel Deployment ]
+- **STRATEGY:** [ Transactional Precision & Inventory Sync ]
+
+**Operational Breakdown:**
+- **TRANSACTION_RELAY_NODE:** Engineered a precise checkout system to synchronize customer orders and secure payment states.
+- **INVENTORY_STABILITY_GRID:** Developed the persistent data layer using MongoDB for industrial-grade SKU tracking and availability management.
+- **RETAIL_UX_MATRIX:** Architected a premium React interface to provide customers with an intuitive and motion-rich shopping dashboard.
+
+### 03. VISUAL_SYSTEM
+*Artifacts from the e-commerce interface.*
+1. **[ /assets/hero.png ]** — *Retail Dashboard: Visualizing footwear orchestration and inventory data.*
+
+### 04. SYSTEM_IMPACT
+*Operational metrics and qualitative results.*
+- **COMMERCE_SPEED:** [ Zero-latency retail ordering ]
+- **GRID_RELIABILITY:** [ 100% persistent inventory state management ]
+- **USER_ADAPTATION:** [ Enhanced retail navigation through motion-rich UX ]
+
+---
+
+*End of PRJ_016.*

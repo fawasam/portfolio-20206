@@ -224,7 +224,7 @@ const PROJECTS_DATA: { [key: string]: any } = {
        { label: "COMMUNICATION_SCALE", val: "AGORA_VOICE_SYNC" },
        { label: "USER_GROWTH_ENGINE", val: "AUTOMATED_REFERRALS" }
     ],
-    images: ["/assets/talkiyo_main.png", "/assets/hero.png"]
+    images: ["/assets/talkiyo.png", "/assets/hero.png"]
   },
   "PRJ_010": {
     id: "PRJ_010",
@@ -248,7 +248,7 @@ const PROJECTS_DATA: { [key: string]: any } = {
        { label: "SESSION_TRUST", val: "CONFIDENTIAL_INDEXED" },
        { label: "SYSTEM_SCALE", val: "50K_CARE_NODES" }
     ],
-    images: ["/assets/arikil_main.png", "/assets/hero.png"]
+    images: ["/assets/arikil.jpg", "/assets/hero.png"]
   },
   "PRJ_011": {
     id: "PRJ_011",
@@ -296,7 +296,103 @@ const PROJECTS_DATA: { [key: string]: any } = {
        { label: "SYSTEM_RELIABILITY", val: "HYBRID_CORE_STABLE" },
        { label: "SEARCH_DOMINANCE", val: "PREMIER_KNOWLEDGE_HUB" }
     ],
-    images: ["/assets/hero.png", "/assets/hero.png"]
+    images: ["/assets/markaz.jpeg", "/assets/hero.png"]
+  },
+  "PRJ_013": {
+    id: "PRJ_013",
+    title: "TRAVZ_CAR_RENTAL",
+    year: "2024",
+    category: "Logistics_Architecture / Fleet_Management / GCC",
+    status: "ACTIVE_DEPLOYMENT",
+    stack: "NEXT.JS / TYPESCRIPT / AWS_EC2",
+    url: "https://travzcarrental.com/",
+    nodes: [
+      { name: "MULTI_LINGUAL_RELAY", desc: "Automated localization mesh for seamless Arabic and English user transitions across the GCC." },
+      { name: "CURRENCY_ORCHESTRATOR", desc: "Real-time exchange rate synchronization for precise regional rental settlements." },
+      { name: "FLEET_LOGIC_MESH", desc: "Robust availability orchestration across distributed vehicle inventory nodes." }
+    ],
+    concepts: {
+      philosophy: "Modernizing regional car rentals into an adaptive, high-precision digital commerce engine focusing on accessibility and fleet scale.",
+      breakdown: "A complete TypeScript-driven infrastructure deployed on AWS EC2, featuring multi-currency settlements and localized operational nodes."
+    },
+    impact: [
+       { label: "REGIONAL_REACH", val: "GCC_WIDE_DEPLOYMENT" },
+       { label: "COMMERCE_FLEX", val: "MULTI_CURRENCY_READY" },
+       { label: "USER_ADAPTATION", val: "Localized_Sync" }
+    ],
+    images: ["/assets/travz.jpg", "/assets/hero.png"]
+  },
+  "PRJ_014": {
+    id: "PRJ_014",
+    title: "MY_DEGREE",
+    year: "2024",
+    category: "Educational_Systems / Academic_Portal",
+    status: "ACTIVE_DEPLOYMENT",
+    stack: "NEXT.JS / NODE.JS / MONGODB",
+    url: "https://mydegree.vercel.app/",
+    nodes: [
+      { name: "ACADEMIC_TRACKING_NODE", desc: "Real-time orchestration of student degree progress and credit accumulation states." },
+      { name: "MERN_RELAY_CORE", desc: "Robust data persistence and API architecture for high-concurrency academic record handling." },
+      { name: "STUDENT_USER_MESH", desc: "Intuitive, high-fidelity interface for seamless academic navigation and resource access." }
+    ],
+    concepts: {
+      philosophy: "Simplifying academic complexity into a streamlined student journey, prioritizing data transparency and user-centric tracking.",
+      breakdown: "A complete MERN-driven portal deployed on Vercel, focusing on real-time academic state management and intuitive UX."
+    },
+    impact: [
+       { label: "TRACKING_PRECISION", val: "SYNCHRONIZED_PROGRESS" },
+       { label: "DATA_INTEGRITY", val: "MERN_PERSISTENT_NODES" },
+       { label: "USER_ACCESSIBILITY", val: "ACADEMIC_HUD_ACTIVE" }
+    ],
+    images: ["/assets/my-degree.jpg", "/assets/hero.png"]
+  },
+  "PRJ_015": {
+    id: "PRJ_015",
+    title: "KEY2_CONTENT",
+    year: "2024",
+    category: "Creative_Agency / Visual_Branding",
+    status: "ACTIVE_DEPLOYMENT",
+    stack: "HTML / CSS / JS / PHP",
+    url: "https://key2-content.vercel.app/index.html",
+    nodes: [
+      { name: "VISUAL_STORYTELLING_NODE", desc: "Crafting high-fidelity digital narratives through precision branding and fluid UI transitions." },
+      { name: "LEGACY_STACK_MODERN_UX", desc: "Harnessing the reliability of PHP/JS to deliver a premium, modern creative agency experience." },
+      { name: "CONTENT_RELAY_MESH", desc: "Streamlined asset delivery pipeline for high-resolution visual and creative media blocks." }
+    ],
+    concepts: {
+      philosophy: "Visualizing the intersection of brand identity and digital motion—architecting a creative landscape that elevates content through design.",
+      breakdown: "A lightweight, high-performance agency portal utilizing a stable web stack to ensure global accessibility and design fidelity."
+    },
+    impact: [
+       { label: "BRAND_RECOGNITION", val: "HIGH_FIDELITY_IDENTITY" },
+       { label: "SYSTEM_SPEED", val: "OPTIMIZED_LEGACY_CORE" },
+       { label: "DESIGN_ACCESSIBILITY", val: "GLOBAL_CONTENT_SYNC" }
+    ],
+    images: ["/assets/key-2-content.png", "/assets/hero.png"]
+  },
+  "PRJ_016": {
+    id: "PRJ_016",
+    title: "SHOE_STORE_STALL",
+    year: "2024",
+    category: "Commerce_Architecture / Retail_Web",
+    status: "ACTIVE_DEPLOYMENT",
+    stack: "REACT / NODE.JS / MONGODB / VERCEL",
+    url: "https://shoe-store-stall.vercel.app/",
+    nodes: [
+      { name: "TRANSACTION_RELAY_NODE", desc: "Engineered high-fidelity checkout logic with persistent state management and secure payment Handshake." },
+      { name: "INVENTORY_STABILITY_GRID", desc: "Real-time orchestration of product availability and SKU tracking using a robust MongoDB data layer." },
+      { name: "RETAIL_UX_MATRIX", desc: "Intuitive, motion-rich React interface designed to elevate the digital retail footwear experience." }
+    ],
+    concepts: {
+      philosophy: "Visualizing retail fluidity—architecting a commerce landscape that prioritizes transactional speed and user-centric discovery.",
+      breakdown: "A complete MERN-driven e-commerce infrastructure deployed on Vercel, focusing on real-time state synchronization and industrial-grade reliability."
+    },
+    impact: [
+       { label: "COMMERCE_SPEED", val: "ZERO_LATENCY_ORDERING" },
+       { label: "GRID_RELIABILITY", val: "PERSISTENT_INVENTORY" },
+       { label: "USER_ADAPTATION", val: "Retail_UX_Active" }
+    ],
+    images: ["/assets/shoe.webp", "/assets/hero.png"]
   }
 };
 
