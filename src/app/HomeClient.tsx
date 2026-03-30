@@ -125,46 +125,46 @@ const HERO_CONFIGS = [
     description: "From scalable backend architectures to intelligent interfaces, my work lives at the intersection of logic and experience.",
     keyDetail: "LIVE_FEED_01"
   },
-  {
-    line1: "ARCHITECT",
-    line2: "DIGITAL",
-    highlight: "RESILIENCE.",
-    subHeadline: "Engineering high-concurrency systems and autonomous infrastructures that turn complex logic into seamless human experiences.",
-    description: "Building systems that scale effortlessly under pressure, ensuring robust operations.",
-    keyDetail: "[LATENCY_OPTIMIZED] // [SCALED_FOR_GROWTH]"
-  },
-  {
-    line1: "SYSTEMS",
-    line2: "WITH",
-    highlight: "INTELLIGENCE.",
-    subHeadline: "Beyond code—I build agentic architectures and neural meshes that bridge the gap between static data and active intelligence.",
-    description: "Integrating state-of-the-art AI solutions to elevate user experiences and drive innovation.",
-    keyDetail: "[GEN_AI_ORCHESTRATOR] // [RAG_PROTOCOL_ACTIVE]"
-  },
-  {
-    line1: "LOGIC.",
-    line2: "SCALED.",
-    highlight: "REALIZED.",
-    subHeadline: "Senior Systems Architect specializing in the design of robust backend grids and fluid, high-performance interfaces.",
-    description: "From concept to deployment, turning abstract algorithms into tangible, high-impact products.",
-    keyDetail: "[STATUS: READY_FOR_DEPLOYMENT]"
-  },
-  {
-    line1: "PIXELS",
-    line2: "TO",
-    highlight: "PIPELINES.",
-    subHeadline: "Architecting end-to-end solutions, connecting resilient back-end systems with meticulously crafted, high-performance user interfaces.",
-    description: "Bridging visually striking frontends with highly performant, scalable server-side systems.",
-    keyDetail: "[FULL_STACK_MASTERY] // [PIXEL_PERFECT]"
-  },
-  {
-    line1: "DECODING",
-    line2: "",
-    highlight: "COMPLEXITY.",
-    subHeadline: "Transforming intricate business requirements into elegant, scalable software ecosystems that drive tangible results.",
-    description: "Distilling complex problems to their core and building scalable, maintainable architectures.",
-    keyDetail: "[PROBLEM_SOLVER] // [SYSTEMS_THINKER]"
-  }
+  // {
+  //   line1: "ARCHITECT",
+  //   line2: "DIGITAL",
+  //   highlight: "RESILIENCE.",
+  //   subHeadline: "Engineering high-concurrency systems and autonomous infrastructures that turn complex logic into seamless human experiences.",
+  //   description: "Building systems that scale effortlessly under pressure, ensuring robust operations.",
+  //   keyDetail: "[LATENCY_OPTIMIZED] // [SCALED_FOR_GROWTH]"
+  // },
+  // {
+  //   line1: "SYSTEMS",
+  //   line2: "WITH",
+  //   highlight: "INTELLIGENCE.",
+  //   subHeadline: "Beyond code—I build agentic architectures and neural meshes that bridge the gap between static data and active intelligence.",
+  //   description: "Integrating state-of-the-art AI solutions to elevate user experiences and drive innovation.",
+  //   keyDetail: "[GEN_AI_ORCHESTRATOR] // [RAG_PROTOCOL_ACTIVE]"
+  // },
+  // {
+  //   line1: "LOGIC.",
+  //   line2: "SCALED.",
+  //   highlight: "REALIZED.",
+  //   subHeadline: "Senior Systems Architect specializing in the design of robust backend grids and fluid, high-performance interfaces.",
+  //   description: "From concept to deployment, turning abstract algorithms into tangible, high-impact products.",
+  //   keyDetail: "[STATUS: READY_FOR_DEPLOYMENT]"
+  // },
+  // {
+  //   line1: "PIXELS",
+  //   line2: "TO",
+  //   highlight: "PIPELINES.",
+  //   subHeadline: "Architecting end-to-end solutions, connecting resilient back-end systems with meticulously crafted, high-performance user interfaces.",
+  //   description: "Bridging visually striking frontends with highly performant, scalable server-side systems.",
+  //   keyDetail: "[FULL_STACK_MASTERY] // [PIXEL_PERFECT]"
+  // },
+  // {
+  //   line1: "DECODING",
+  //   line2: "",
+  //   highlight: "COMPLEXITY.",
+  //   subHeadline: "Transforming intricate business requirements into elegant, scalable software ecosystems that drive tangible results.",
+  //   description: "Distilling complex problems to their core and building scalable, maintainable architectures.",
+  //   keyDetail: "[PROBLEM_SOLVER] // [SYSTEMS_THINKER]"
+  // }
 ];
 
 export default function Home() {
